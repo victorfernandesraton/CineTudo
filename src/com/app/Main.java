@@ -16,10 +16,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO need make interface for integrator GUI for obj
 		
-		ArrayList<Room> roomList = new ArrayList();
-		ArrayList<Session> sessionList = new ArrayList();
-		ArrayList<Movie> movieList = new ArrayList();
-		ArrayList<Ticket> ticketList = new ArrayList();
+		
 		
 		// teste classe
 		Room room = new Room3d("1212",2);
