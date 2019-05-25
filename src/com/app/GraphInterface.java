@@ -24,6 +24,9 @@ import javax.swing.JSpinner;
 import javax.swing.SpringLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GraphInterface {
 
@@ -35,6 +38,8 @@ public class GraphInterface {
 	public ArrayList<Session> sessionList = new ArrayList();
 	public ArrayList<Movie> movieList = new ArrayList();
 	public ArrayList<Ticket> ticketList = new ArrayList();
+	private JTextField textField;
+	private JTextField textField_1;
 	/**
 	 * Launch the application.
 	 */
@@ -56,30 +61,36 @@ public class GraphInterface {
 		
 		JPanel panel_4 = new JPanel();
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnRoon = new JButton("Add Roon");
+		
+		JButton btnNewButton_3 = new JButton("New button");
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
-			gl_panel_4.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel_4.createSequentialGroup()
-					.addContainerGap(11, Short.MAX_VALUE)
-					.addComponent(btnNewButton_2)
+			gl_panel_4.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnNewButton_3, Alignment.TRAILING)
+						.addComponent(btnRoon, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_panel_4.setVerticalGroup(
-			gl_panel_4.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel_4.createSequentialGroup()
-					.addContainerGap(151, Short.MAX_VALUE)
-					.addComponent(btnNewButton_2)
-					.addGap(87))
+			gl_panel_4.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnRoon)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnNewButton_3)
+					.addContainerGap(198, Short.MAX_VALUE))
 		);
 		panel_4.setLayout(gl_panel_4);
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
 		frame.getContentPane().add(panel_4);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		JTabbedPane tbPanel = new JTabbedPane(JTabbedPane.TOP);
 		
 		pnRoom = new JPanel();
-		tabbedPane.addTab("Room", null, pnRoom, null);
+		tbPanel.addTab("Room", null, pnRoom, null);
 		
 		JLabel tbRoon_title = new JLabel("Create Room");
 		
@@ -207,14 +218,106 @@ public class GraphInterface {
 		panel.setLayout(gl_panel);
 		pnRoom.setLayout(gl_pnRoom);
 		
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_1, null);
+		JPanel pnMovie = new JPanel();
+		tbPanel.addTab("New tab", null, pnMovie, null);
+		
+		JLabel tbMovie_title = new JLabel("New label");
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		
+		JComboBox comboBox = new JComboBox();
+		
+		JLabel lblNewLabel_3 = new JLabel("New label");
+		
+		JSpinner spinner = new JSpinner();
+		
+		JButton btnNewButton = new JButton("New button");
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		GroupLayout gl_pnMovie = new GroupLayout(pnMovie);
+		gl_pnMovie.setHorizontalGroup(
+			gl_pnMovie.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnMovie.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_pnMovie.createSequentialGroup()
+							.addComponent(tbMovie_title)
+							.addGap(189))
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addComponent(lblNewLabel_1)
+							.addContainerGap(384, Short.MAX_VALUE))
+						.addGroup(Alignment.TRAILING, gl_pnMovie.createSequentialGroup()
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNewLabel)
+								.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(textField_1, Alignment.LEADING)
+									.addComponent(textField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+							.addGap(18)
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblNewLabel_3)
+								.addComponent(spinner, GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+								.addComponent(lblNewLabel_2)
+								.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addGroup(gl_pnMovie.createSequentialGroup()
+									.addComponent(btnNewButton)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnNewButton_1)))
+							.addContainerGap(33, Short.MAX_VALUE))))
+		);
+		gl_pnMovie.setVerticalGroup(
+			gl_pnMovie.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnMovie.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(tbMovie_title)
+					.addGap(18)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(lblNewLabel_3))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblNewLabel_1)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addGap(19)
+							.addComponent(lblNewLabel_2)))
+					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton)
+						.addComponent(btnNewButton_1))
+					.addGap(31))
+		);
+		pnMovie.setLayout(gl_pnMovie);
 		
 		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_2, null);
+		tbPanel.addTab("New tab", null, panel_2, null);
 		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_3, null);
-		frame.getContentPane().add(tabbedPane);
+		tbPanel.addTab("New tab", null, panel_3, null);
+		frame.getContentPane().add(tbPanel);
+		
+		// events 
+		btnRoon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tbPanel.setSelectedIndex(0);
+			}
+		});
 	}
 }
