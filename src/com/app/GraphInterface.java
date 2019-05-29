@@ -17,6 +17,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTabbedPane;
@@ -27,6 +28,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class GraphInterface {
 
@@ -40,6 +43,7 @@ public class GraphInterface {
 	public ArrayList<Ticket> ticketList = new ArrayList();
 	private JTextField textField;
 	private JTextField textField_1;
+	private ButtonGroup btgType = new ButtonGroup(); 
 	/**
 	 * Launch the application.
 	 */
@@ -63,24 +67,24 @@ public class GraphInterface {
 		
 		JButton btnRoon = new JButton("Add Roon");
 		
-		JButton btnNewButton_3 = new JButton("New button");
+		JButton btnMovie = new JButton("Add Movie");
 		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
 		gl_panel_4.setHorizontalGroup(
 			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_4.createSequentialGroup()
+				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_4.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_3, Alignment.TRAILING)
-						.addComponent(btnRoon, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+						.addComponent(btnMovie, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+						.addComponent(btnRoon, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_panel_4.setVerticalGroup(
-			gl_panel_4.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_panel_4.createSequentialGroup()
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_4.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(btnRoon)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_3)
+					.addComponent(btnMovie)
 					.addContainerGap(198, Short.MAX_VALUE))
 		);
 		panel_4.setLayout(gl_panel_4);
@@ -195,6 +199,7 @@ public class GraphInterface {
 		);
 		
 		JRadioButton tbRoon_rdTypeNormal = new JRadioButton("Normal");
+		tbRoon_rdTypeNormal.setSelected(true);
 		
 		JRadioButton tbRoon_rdTypr3d = new JRadioButton("3D");
 		GroupLayout gl_panel = new GroupLayout(panel);
@@ -219,25 +224,25 @@ public class GraphInterface {
 		pnRoom.setLayout(gl_pnRoom);
 		
 		JPanel pnMovie = new JPanel();
-		tbPanel.addTab("New tab", null, pnMovie, null);
+		tbPanel.addTab("Movie", null, pnMovie, null);
 		
-		JLabel tbMovie_title = new JLabel("New label");
+		JLabel pnMovie_title = new JLabel("Make movie");
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel pnMovie_lbTitle = new JLabel("Title");
 		
 		textField = new JTextField();
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("Description");
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("Category");
 		
 		JComboBox comboBox = new JComboBox();
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
+		JLabel tbMovie_lbCategory = new JLabel("Min. Age");
 		
 		JSpinner spinner = new JSpinner();
 		
@@ -249,55 +254,51 @@ public class GraphInterface {
 			gl_pnMovie.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnMovie.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_pnMovie.createSequentialGroup()
-							.addComponent(tbMovie_title)
-							.addGap(189))
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addComponent(lblNewLabel_1)
-							.addContainerGap(384, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, gl_pnMovie.createSequentialGroup()
+							.addComponent(pnMovie_title)
+							.addGap(189))
+						.addGroup(Alignment.LEADING, gl_pnMovie.createSequentialGroup()
 							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel)
+								.addComponent(pnMovie_lbTitle)
 								.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING, false)
 									.addComponent(textField_1, Alignment.LEADING)
-									.addComponent(textField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+									.addComponent(textField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+								.addComponent(lblNewLabel_1))
 							.addGap(18)
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(lblNewLabel_3)
-								.addComponent(spinner, GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNewLabel_2)
-								.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addGroup(gl_pnMovie.createSequentialGroup()
-									.addComponent(btnNewButton)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btnNewButton_1)))
-							.addContainerGap(33, Short.MAX_VALUE))))
+								.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(tbMovie_lbCategory)
+									.addComponent(spinner, GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+									.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addGroup(gl_pnMovie.createSequentialGroup()
+										.addComponent(btnNewButton)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnNewButton_1))))
+							.addContainerGap(34, Short.MAX_VALUE))))
 		);
 		gl_pnMovie.setVerticalGroup(
 			gl_pnMovie.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnMovie.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(tbMovie_title)
+					.addComponent(pnMovie_title)
 					.addGap(18)
 					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(lblNewLabel_3))
+						.addComponent(pnMovie_lbTitle)
+						.addComponent(tbMovie_lbCategory))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblNewLabel_1)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addGap(19)
-							.addComponent(lblNewLabel_2)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_1)
+						.addComponent(lblNewLabel_2))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
 					.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton)
@@ -319,5 +320,20 @@ public class GraphInterface {
 				tbPanel.setSelectedIndex(0);
 			}
 		});
+		btnMovie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tbPanel.setSelectedIndex(1);;
+			}
+		});
+		tbRoon_cbPrice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (tbRoon_cbPrice.isSelected()) {
+					tbRoom_tfPrice.setEnabled(false);
+				} else 	tbRoom_tfPrice.setEnabled(true);
+			}
+		});
+		btgType.add(tbRoon_rdTypeNormal);
+		btgType.add(tbRoon_rdTypr3d);
 	}
+	
 }
