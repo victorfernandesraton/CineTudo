@@ -314,8 +314,8 @@ public class GraphInterface {
 		);
 		pnMovie.setLayout(gl_pnMovie);
 		
-		JPanel panel_2 = new JPanel();
-		tbPanel.addTab("New tab", null, panel_2, null);
+		JPanel pnSession = new JPanel();
+		tbPanel.addTab("Sessions", null, pnSession, null);
 		
 		JPanel panel_3 = new JPanel();
 		tbPanel.addTab("New tab", null, panel_3, null);
