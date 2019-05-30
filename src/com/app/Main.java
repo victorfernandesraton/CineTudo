@@ -26,6 +26,7 @@ public class Main {
 				}
 			}
 		} catch (Throwable e) {
+			//
 		}
 		// teste classe
 		Room room = new Room3d("1212",2);
