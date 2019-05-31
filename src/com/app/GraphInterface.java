@@ -29,6 +29,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
@@ -37,6 +38,8 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.ComboBoxEditor;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 
 public class GraphInterface {
@@ -52,14 +55,21 @@ public class GraphInterface {
 	public ArrayList<JTextField> tbRoom_tf = new ArrayList();
 	public ArrayList<JSpinner> tbRoom_sp = new ArrayList();
 	public ArrayList<JButton> btnMenu = new ArrayList();
-	private ButtonGroup btgType = new ButtonGroup(); 
+	private ButtonGroup btgType = new ButtonGroup();
+	private JComboBox tbSession_cbMovie;
 	/**
 	 * Launch the application.
 	 */
 	private Component tbMovie_tfTitle;
 	private JTextField textField;
 	private JTextField textField_1;
-
+	
+	public void cbUpdateMovie(ArrayList<Movie> movieList, JComboBox box) {
+		box.removeAllItems();
+		for (Movie movie : movieList) {			
+			box.addItem(movie);
+		}
+	}
 	/**
 	 * Create the application.
 	 */
@@ -279,11 +289,6 @@ public class GraphInterface {
 		text.addKeyListener(new ComboListener(tbMovie_cbCategory,vectorPesawat));
 		tbMovie_cbCategory.setBounds(144, 56, 165, 24);
 		pnRoom.add(tbMovie_cbCategory);
-
-		
-
-
-		
 		
 		JLabel tbMovie_lbMinAge = new JLabel("Min. Age");
 		
@@ -291,9 +296,23 @@ public class GraphInterface {
 		
 		JButton tbMovie_btnConfirm = new JButton("Confirm");
 		
+		
 		JTextArea tbMovie_taDescription = new JTextArea();
 		
 		JComboBox tbMovie_cbMinAg = new JComboBox();
+		Vector vectorPesawattbMovie_cbMinAg = new Vector();
+        tbMovie_cbMinAg = new JComboBox();
+		tbMovie_cbMinAg.setModel(new DefaultComboBoxModel(vectorPesawattbMovie_cbMinAg));
+		tbMovie_cbMinAg.setSelectedIndex(-1);
+		tbMovie_cbMinAg.setEditable(true);
+		JTextField texttbMovie_cbMinAg = (JTextField)tbMovie_cbMinAg.getEditor().getEditorComponent();
+		texttbMovie_cbMinAg.setFocusable(true);
+		texttbMovie_cbMinAg.setText("");
+		texttbMovie_cbMinAg.addKeyListener(new ComboListener(tbMovie_cbMinAg,vectorPesawattbMovie_cbMinAg));
+		tbMovie_cbMinAg.setBounds(144, 56, 165, 24);
+		pnRoom.add(tbMovie_cbMinAg);
+
+		
 		GroupLayout gl_tbMovie_title = new GroupLayout(tbMovie_title);
 		gl_tbMovie_title.setHorizontalGroup(
 			gl_tbMovie_title.createParallelGroup(Alignment.LEADING)
@@ -357,16 +376,40 @@ public class GraphInterface {
 		JPanel pnSession = new JPanel();
 		tbPanel.addTab("Sessions", null, pnSession, null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel tbSession_title = new JLabel("New label");
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel tbSession_lbMovie = new JLabel("New label");
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setAutoscrolls(true);
+		tbSession_cbMovie = new JComboBox();
+		tbSession_cbMovie.setAutoscrolls(true);
+		Vector vectorPesawattbSession_cbMovie = new Vector();
+        tbSession_cbMovie = new JComboBox();
+		tbSession_cbMovie.setModel(new DefaultComboBoxModel(vectorPesawattbSession_cbMovie));
+		tbSession_cbMovie.setSelectedIndex(-1);
+		tbSession_cbMovie.setEditable(true);
+		JTextField texttbSession_cbMovie = (JTextField)tbSession_cbMovie.getEditor().getEditorComponent();
+		texttbSession_cbMovie.setFocusable(true);
+		texttbSession_cbMovie.setText("");
+		texttbSession_cbMovie.addKeyListener(new ComboListener(tbSession_cbMovie,vectorPesawattbSession_cbMovie));
+		tbSession_cbMovie.setBounds(144, 56, 165, 24);
+		pnRoom.add(tbSession_cbMovie);
+
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		
-		JComboBox comboBox_1 = new JComboBox();
+		JComboBox tbSession_cbRoom = new JComboBox();
+		Vector vectorPesawattbSession_cbRoom = new Vector();
+        tbSession_cbRoom = new JComboBox();
+		tbSession_cbRoom.setModel(new DefaultComboBoxModel(vectorPesawattbSession_cbRoom));
+		tbSession_cbRoom.setSelectedIndex(-1);
+		tbSession_cbRoom.setEditable(true);
+		JTextField texttbSession_cbRoom = (JTextField)tbSession_cbRoom.getEditor().getEditorComponent();
+		texttbSession_cbRoom.setFocusable(true);
+		texttbSession_cbRoom.setText("");
+		texttbSession_cbRoom.addKeyListener(new ComboListener(tbSession_cbRoom,vectorPesawattbSession_cbRoom));
+		tbSession_cbRoom.setBounds(144, 56, 165, 24);
+		pnRoom.add(tbSession_cbRoom);
+
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
 		
@@ -396,18 +439,18 @@ public class GraphInterface {
 					.addGroup(gl_pnSession.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnSession.createSequentialGroup()
 							.addGap(196)
-							.addComponent(lblNewLabel))
+							.addComponent(tbSession_title))
 						.addGroup(gl_pnSession.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(lblNewLabel_1))
+							.addComponent(tbSession_lbMovie))
 						.addGroup(gl_pnSession.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(lblNewLabel_2))
 						.addGroup(gl_pnSession.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_pnSession.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(comboBox_1, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(comboBox, Alignment.LEADING, 0, 201, Short.MAX_VALUE)))
+								.addComponent(tbSession_cbRoom, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(tbSession_cbMovie, Alignment.LEADING, 0, 201, Short.MAX_VALUE)))
 						.addGroup(gl_pnSession.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_pnSession.createParallelGroup(Alignment.LEADING)
@@ -434,14 +477,14 @@ public class GraphInterface {
 			gl_pnSession.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnSession.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblNewLabel)
+					.addComponent(tbSession_title)
 					.addGap(18)
 					.addGroup(gl_pnSession.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_1)
+						.addComponent(tbSession_lbMovie)
 						.addComponent(lblNewLabel_5))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_pnSession.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(tbSession_cbMovie, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_pnSession.createParallelGroup(Alignment.BASELINE)
@@ -450,7 +493,7 @@ public class GraphInterface {
 					.addGroup(gl_pnSession.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_pnSession.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(tbSession_cbRoom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_pnSession.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblNewLabel_3)
@@ -497,11 +540,28 @@ public class GraphInterface {
 			tbMovie_cbCategory.addItem(category);
 		}
 		
+		for (Room room : roomList) {
+			tbSession_cbRoom.addItem(room);
+		}
+		
+		for (Movie movie : movieList) {
+			tbSession_cbMovie.addItem(movie.getTitle());
+		}
+		
+		
 		// array de tfild
 		tbRoom_tf.add(tbRoom_tfID);
 		
 		// events 
 		
+		pnSession.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				for (Movie movie : movieList) {
+					tbSession_cbMovie.addItem(movie.getTitle());
+				}
+			}
+		});
 		btnRoon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tbPanel.setSelectedIndex(0);
@@ -558,8 +618,17 @@ public class GraphInterface {
 					tbRoom_spPrice.setValue(30);
 				}
 			}
-		});			
-	}
-	
+		});
+		
+		tbMovie_btnConfirm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Movie mv = new Movie(LocalTime.parse("02:30"), tbMovie_tfTitle.getText(), tbMovie_taDescription.getText());
+				movieList.add(mv);
+				System.out.println(mv.toString());
+				cbUpdateMovie(movieList,tbSession_cbMovie);
+			}
+		});
+		
+	}	
 	
 }
