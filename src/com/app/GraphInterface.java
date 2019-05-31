@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JTextField;
 import java.awt.Component;
@@ -35,6 +36,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.ComboBoxEditor;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class GraphInterface {
@@ -72,7 +74,7 @@ public class GraphInterface {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 596, 296);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		Vector vectorPesawat = new Vector();
 		JPanel panel_4 = new JPanel();
 		JButton btnRoon = new JButton("Add Roon");
 		JButton btnMovie = new JButton("Add Movie");
@@ -268,6 +270,20 @@ public class GraphInterface {
 		JLabel tbMovie_lbCategory = new JLabel("Category");
 		
 		JComboBox tbMovie_cbCategory = new JComboBox();
+		tbMovie_cbCategory.setModel(new DefaultComboBoxModel(vectorPesawat));
+		tbMovie_cbCategory.setSelectedIndex(-1);
+		tbMovie_cbCategory.setEditable(true);
+		JTextField text = (JTextField)tbMovie_cbCategory.getEditor().getEditorComponent();
+		text.setFocusable(true);
+		text.setText("");
+		text.addKeyListener(new ComboListener(tbMovie_cbCategory,vectorPesawat));
+		tbMovie_cbCategory.setBounds(144, 56, 165, 24);
+		pnRoom.add(tbMovie_cbCategory);
+
+		
+
+
+		
 		
 		JLabel tbMovie_lbMinAge = new JLabel("Min. Age");
 		
@@ -544,4 +560,6 @@ public class GraphInterface {
 			}
 		});			
 	}
+	
+	
 }
