@@ -17,7 +17,6 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO need make interface for integrator GUI for obj
 		
-		
 		// set LookAndFeel
 		try {
 			for(LookAndFeelInfo info: UIManager.getInstalledLookAndFeels()) {
@@ -36,7 +35,6 @@ public class Main {
 		System.out.print(session.buyTickets(user).toString());
 		System.out.print(session.buyTickets(user).toString());
 		System.out.println(session.toString());
-		
 
 		EventQueue.invokeLater(new Runnable() {
 		public void run() {
