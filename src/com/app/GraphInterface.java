@@ -50,15 +50,17 @@ public class GraphInterface {
 
 	public JFrame frame;
 	public JPanel pnRoom;
-	public ArrayList<Room> roomList = new ArrayList();
-	public ArrayList<Session> sessionList = new ArrayList();
-	public ArrayList<Movie> movieList = new ArrayList();
-	public ArrayList<Ticket> ticketList = new ArrayList();
-	public ArrayList<Integer> ageList = new ArrayList();
-	public ArrayList<String> categoryList = new ArrayList();
-	public ArrayList<JTextField> tbRoom_tf = new ArrayList();
-	public ArrayList<JSpinner> tbRoom_sp = new ArrayList();
-	public ArrayList<JButton> btnMenu = new ArrayList();
+	public ArrayList<Room> roomList = new ArrayList<Room>();
+	public ArrayList<Session> sessionList = new ArrayList<Session>();
+	public ArrayList<Movie> movieList = new ArrayList<Movie>();
+	public ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
+	public ArrayList<Integer> ageList = new ArrayList<Integer>();
+	public ArrayList<String> categoryList = new ArrayList<String>();
+	public ArrayList<JTextField> tbRoom_tf = new ArrayList<JTextField>();
+	public ArrayList<JSpinner> tbRoom_sp = new ArrayList<JSpinner>();
+	public ArrayList<JButton> btnMenu = new ArrayList<JButton>();
+	public ArrayList<Integer> hourList = new ArrayList<Integer>();
+	public ArrayList<Integer> minList = new ArrayList<Integer>();
 	private ButtonGroup btgType = new ButtonGroup();
 	private JComboBox tbSession_cbMovie;
 	/**
@@ -68,8 +70,6 @@ public class GraphInterface {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField tbMovie_TimeMin;
-	private JTextField tbMovie_TimeHr;
 	private JTextField tbMovie_tfTitle2;
 	
 	public void cbUpdateMovie(ArrayList<Movie> movieList, JComboBox box) {
@@ -273,6 +273,127 @@ public class GraphInterface {
 		panel.setLayout(gl_panel);
 		pnRoom.setLayout(gl_pnRoom);
 		
+		JPanel pnMovie = new JPanel();
+		tbPanel.addTab("Movie", null, pnMovie, null);
+		
+		JLabel pnMovie_title = new JLabel("Movie");
+		
+		JLabel tbMovie_lbTitle = new JLabel("New label");
+		
+		JComboBox tbMovie_cbCategory = new JComboBox();
+		
+		JLabel pnMovie_lbMinAge = new JLabel("New label");
+		
+		JComboBox tbMovie_cbMinAge = new JComboBox();
+		
+		JLabel pnMovie_lbCategory = new JLabel("New label");
+		
+		JLabel lblNewLabel_9 = new JLabel("New label");
+		
+		JButton tbMovie_btnCancel = new JButton("New button");
+		
+		JButton tbMovie_btnConfirm = new JButton("New button");
+		
+		tbMovie_tfTitle2 = new JTextField();
+		tbMovie_tfTitle2.setColumns(10);
+		
+		JLabel tbMovie_lbDescription = new JLabel("New label");
+		
+		JTextArea tbMovie_taDescription = new JTextArea();
+		
+		JLabel lblNewLabel = new JLabel(":");
+		
+		JComboBox tbMovie_cbTimeHr = new JComboBox();
+		
+		JComboBox tbMovie_cbTimeMin = new JComboBox();
+		GroupLayout gl_pnMovie = new GroupLayout(pnMovie);
+		gl_pnMovie.setHorizontalGroup(
+			gl_pnMovie.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnMovie.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addComponent(tbMovie_cbCategory, 0, 176, Short.MAX_VALUE)
+							.addGap(278))
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+								.addComponent(tbMovie_lbTitle)
+								.addGroup(gl_pnMovie.createSequentialGroup()
+									.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+										.addComponent(tbMovie_cbMinAge, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
+										.addComponent(pnMovie_lbMinAge))
+									.addGap(18)
+									.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_pnMovie.createSequentialGroup()
+											.addGap(81)
+											.addComponent(pnMovie_title))
+										.addGroup(gl_pnMovie.createSequentialGroup()
+											.addComponent(tbMovie_cbTimeHr, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(tbMovie_cbTimeMin, 0, 48, Short.MAX_VALUE))
+										.addComponent(lblNewLabel_9)))
+								.addComponent(tbMovie_tfTitle2, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+								.addComponent(pnMovie_lbCategory))
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(gl_pnMovie.createSequentialGroup()
+									.addGap(14)
+									.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_pnMovie.createSequentialGroup()
+											.addGap(10)
+											.addComponent(tbMovie_lbDescription))
+										.addGroup(gl_pnMovie.createSequentialGroup()
+											.addComponent(tbMovie_btnCancel)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(tbMovie_btnConfirm))))
+								.addGroup(gl_pnMovie.createSequentialGroup()
+									.addGap(18)
+									.addComponent(tbMovie_taDescription)))
+							.addContainerGap())))
+		);
+		gl_pnMovie.setVerticalGroup(
+			gl_pnMovie.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnMovie.createSequentialGroup()
+					.addGap(15)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addComponent(pnMovie_title)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(tbMovie_lbTitle))
+						.addComponent(tbMovie_lbDescription))
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addGap(4)
+							.addComponent(tbMovie_tfTitle2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+								.addComponent(pnMovie_lbMinAge)
+								.addComponent(lblNewLabel_9))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+								.addComponent(tbMovie_cbMinAge, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNewLabel)
+								.addComponent(tbMovie_cbTimeHr, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(tbMovie_cbTimeMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(tbMovie_taDescription, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addGap(11)
+							.addComponent(pnMovie_lbCategory)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(tbMovie_cbCategory, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(37, Short.MAX_VALUE))
+						.addGroup(gl_pnMovie.createSequentialGroup()
+							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
+								.addComponent(tbMovie_btnConfirm)
+								.addComponent(tbMovie_btnCancel))
+							.addContainerGap())))
+		);
+		pnMovie.setLayout(gl_pnMovie);		
 		
 		JPanel pnSession = new JPanel();
 		tbPanel.addTab("Sessions", null, pnSession, null);
@@ -415,126 +536,6 @@ public class GraphInterface {
 		pnSession.setLayout(gl_pnSession);
 		frame.getContentPane().add(tbPanel);
 		
-		JPanel pnMovie = new JPanel();
-		tbPanel.addTab("Movie", null, pnMovie, null);
-		
-		JLabel pnMovie_title = new JLabel("Movie");
-		
-		JLabel tbMovie_lbTitle = new JLabel("New label");
-		
-		JComboBox tbMovie_cbCategory = new JComboBox();
-		
-		JLabel pnMovie_lbMinAge = new JLabel("New label");
-		
-		JComboBox tbMovie_cbMinAge = new JComboBox();
-		
-		JLabel pnMovie_lbCategory = new JLabel("New label");
-		
-		JLabel lblNewLabel_9 = new JLabel("New label");
-		
-		tbMovie_TimeMin = new JTextField();
-		tbMovie_TimeMin.setColumns(10);
-		
-		tbMovie_TimeHr = new JTextField();
-		tbMovie_TimeHr.setColumns(10);
-		
-		JButton tbMovie_btnCancel = new JButton("New button");
-		
-		JButton tbMovie_btnConfirm = new JButton("New button");
-		
-		tbMovie_tfTitle2 = new JTextField();
-		tbMovie_tfTitle2.setColumns(10);
-		
-		JLabel tbMovie_lbDescription = new JLabel("New label");
-		
-		JTextArea tbMovie_taDescription = new JTextArea();
-		GroupLayout gl_pnMovie = new GroupLayout(pnMovie);
-		gl_pnMovie.setHorizontalGroup(
-			gl_pnMovie.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnMovie.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addComponent(tbMovie_cbCategory, 0, 176, Short.MAX_VALUE)
-							.addGap(278))
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-									.addComponent(tbMovie_lbTitle)
-									.addGroup(gl_pnMovie.createSequentialGroup()
-										.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-											.addComponent(tbMovie_cbMinAge, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-											.addComponent(pnMovie_lbMinAge))
-										.addGap(18)
-										.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-											.addGroup(gl_pnMovie.createSequentialGroup()
-												.addGap(81)
-												.addComponent(pnMovie_title))
-											.addComponent(lblNewLabel_9)
-											.addGroup(gl_pnMovie.createSequentialGroup()
-												.addComponent(tbMovie_TimeHr, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-												.addGap(31)
-												.addComponent(tbMovie_TimeMin, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))))
-									.addComponent(tbMovie_tfTitle2, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE))
-								.addComponent(pnMovie_lbCategory))
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_pnMovie.createSequentialGroup()
-									.addGap(14)
-									.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_pnMovie.createSequentialGroup()
-											.addGap(10)
-											.addComponent(tbMovie_lbDescription))
-										.addGroup(gl_pnMovie.createSequentialGroup()
-											.addComponent(tbMovie_btnCancel)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(tbMovie_btnConfirm))))
-								.addGroup(gl_pnMovie.createSequentialGroup()
-									.addGap(18)
-									.addComponent(tbMovie_taDescription)))
-							.addContainerGap())))
-		);
-		gl_pnMovie.setVerticalGroup(
-			gl_pnMovie.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnMovie.createSequentialGroup()
-					.addGap(15)
-					.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addComponent(pnMovie_title)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(tbMovie_lbTitle))
-						.addComponent(tbMovie_lbDescription))
-					.addGroup(gl_pnMovie.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addGap(4)
-							.addComponent(tbMovie_tfTitle2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
-								.addComponent(pnMovie_lbMinAge)
-								.addComponent(lblNewLabel_9))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
-								.addComponent(tbMovie_cbMinAge, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbMovie_TimeMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbMovie_TimeHr, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(tbMovie_taDescription, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_pnMovie.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addGap(11)
-							.addComponent(pnMovie_lbCategory)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(tbMovie_cbCategory, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(37, Short.MAX_VALUE))
-						.addGroup(gl_pnMovie.createSequentialGroup()
-							.addGroup(gl_pnMovie.createParallelGroup(Alignment.BASELINE)
-								.addComponent(tbMovie_btnConfirm)
-								.addComponent(tbMovie_btnCancel))
-							.addContainerGap())))
-		);
-		pnMovie.setLayout(gl_pnMovie);
-
 		// povoamento
 		// TODO criar tipode categoria para ter um label
 		ageList.add(0);
@@ -566,6 +567,21 @@ public class GraphInterface {
 			tbSession_cbMovie.addItem(movie.getTitle());
 		}
 		
+		for (int i = 0; i <= 59; i++) {
+			minList.add(i);
+		}
+		
+		for (int i = 0; i <= 23; i++) {
+			hourList.add(i);
+		}
+		
+		for (Integer object : hourList) {
+			tbMovie_cbTimeHr.addItem(object);
+		}
+		
+		for (Integer object : minList) {
+			tbMovie_cbTimeMin.addItem(object);
+		}
 		
 		// array de tfild
 		tbRoom_tf.add(tbRoom_tfID);
@@ -668,8 +684,14 @@ public class GraphInterface {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String hr = tbMovie_TimeHr.getText();
-				String min = tbMovie_TimeMin.getText();
+				String hr = tbMovie_cbTimeHr.getSelectedItem().toString();
+				String min = tbMovie_cbTimeMin.getSelectedItem().toString();
+				if (hr.length() < 2) {					
+					hr = "0"+hr;
+				}
+				if (min.length() < 2) {					
+					min = "0"+min;
+				}
 				String time = hr+":"+min;
 				Movie mv = new Movie(LocalTime.parse(time), tbMovie_tfTitle2.getText() , tbMovie_taDescription.getText());
 				movieList.add(mv);
@@ -679,6 +701,7 @@ public class GraphInterface {
 				}
 			}
 		});
+
 		
 	}	
 }
