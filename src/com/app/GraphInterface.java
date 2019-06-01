@@ -566,7 +566,7 @@ public class GraphInterface {
 		for (Movie movie : movieList) {
 			tbSession_cbMovie.addItem(movie.getTitle());
 		}
-		
+		//
 		for (int i = 0; i <= 59; i++) {
 			minList.add(i);
 		}
