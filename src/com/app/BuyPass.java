@@ -4,6 +4,7 @@ package com.app;
  * @author Victor
  * @version 2
  */
+
 public interface BuyPass {
 	/**
 	 * This is a buy and make ticket if is possible 

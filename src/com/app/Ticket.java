@@ -41,8 +41,6 @@ public class Ticket {
 		return "\nTicket U$" + this.price+"\n\nCLIENT\n"+"Name:\t"+this.user.getName()+"\nCPF:\t"+this.user.getCpf()+"\nAge:\t"+this.user.getAge()+"\n\nMOVIE:\n"+this.movie.toString()+"\tStart in:"+this.start+"\n";
 	}
 
-
-
 	public void setPrice(double price) {
 		this.price = price;
 	}
