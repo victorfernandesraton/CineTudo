@@ -62,7 +62,6 @@ public class GraphInterface {
 	public ArrayList<Integer> hourList = new ArrayList<Integer>();
 	public ArrayList<Integer> minList = new ArrayList<Integer>();
 	private ButtonGroup btgType = new ButtonGroup();
-	private JComboBox tbSession_cbMovie;
 	/**
 	 * Launch the application.
 	 */
@@ -412,41 +411,41 @@ public class GraphInterface {
 			}
 		}
 		
-		categoryList.add("Drama");
-		categoryList.add("Terror");
-		categoryList.add("Vimgadores");
-		categoryList.add("Filme pirata");
-		for (String category : categoryList) {
-			tbMovie_cbCategory.addItem(category);
-		}
-		
-		for (Room room : roomList) {
-			tbSession_cbRoom.addItem(room);
-		}
-		
-		for (Movie movie : movieList) {
-			tbSession_cbMovie.addItem(movie.getTitle());
-		}
-		//
-		for (int i = 0; i <= 59; i++) {
-			minList.add(i);
-		}
-		
-		for (int i = 0; i <= 23; i++) {
-			hourList.add(i);
-		}
-		
-		for (Integer object : hourList) {
-			tbMovie_cbTimeHr.addItem(object);
-		}
-		
-		for (Integer object : minList) {
-			tbMovie_cbTimeMin.addItem(object);
-		}
-		
-		// array de tfild
-		tbRoom_tf.add(tbRoom_tfID);
-		
+//		categoryList.add("Drama");
+//		categoryList.add("Terror");
+//		categoryList.add("Vimgadores");
+//		categoryList.add("Filme pirata");
+//		for (String category : categoryList) {
+//			tbMovie_cbCategory.addItem(category);
+//		}
+//		
+//		for (Room room : roomList) {
+//			tbSession_cbRoom.addItem(room);
+//		}
+//		
+//		for (Movie movie : movieList) {
+//			tbSession_cbMovie.addItem(movie.getTitle());
+//		}
+//		//
+//		for (int i = 0; i <= 59; i++) {
+//			minList.add(i);
+//		}
+//		
+//		for (int i = 0; i <= 23; i++) {
+//			hourList.add(i);
+//		}
+//		
+//		for (Integer object : hourList) {
+//			tbMovie_cbTimeHr.addItem(object);
+//		}
+//		
+//		for (Integer object : minList) {
+//			tbMovie_cbTimeMin.addItem(object);
+//		}
+//		
+//		// array de tfild
+//		tbRoom_tf.add(tbRoom_tfID);
+//		
 		
 		JPanel panel_1 = new JPanel();
 		tbPanel.addTab("New tab", null, panel_1, null);
@@ -656,9 +655,9 @@ public class GraphInterface {
 				Movie mv = new Movie(LocalTime.parse(time), tbMovie_tfTitle2.getText() , tbMovie_taDescription.getText());
 				movieList.add(mv);
 				
-				for (Movie obj : movieList) {
-					tbSession_cbMovie.addItem(obj);
-				}
+//				for (Movie obj : movieList) {
+//					tbSession_cbMovie.addItem(obj);
+//				}
 			}
 		});
 
