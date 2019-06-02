@@ -394,32 +394,7 @@ public class GraphInterface {
 		);
 		pnMovie.setLayout(gl_pnMovie);
 		
-		tbSession_cbMovie = new JComboBox();
-		tbSession_cbMovie.setAutoscrolls(true);
-		Vector vectorPesawattbSession_cbMovie = new Vector();
-        tbSession_cbMovie = new JComboBox();
-		tbSession_cbMovie.setModel(new DefaultComboBoxModel(vectorPesawattbSession_cbMovie));
-		tbSession_cbMovie.setSelectedIndex(-1);
-		tbSession_cbMovie.setEditable(true);
-		JTextField texttbSession_cbMovie = (JTextField)tbSession_cbMovie.getEditor().getEditorComponent();
-		texttbSession_cbMovie.setFocusable(true);
-		texttbSession_cbMovie.setText("");
-		texttbSession_cbMovie.addKeyListener(new ComboListener(tbSession_cbMovie,vectorPesawattbSession_cbMovie));
-		tbSession_cbMovie.setBounds(144, 56, 165, 24);
-		pnRoom.add(tbSession_cbMovie);
 		
-		JComboBox tbSession_cbRoom = new JComboBox();
-		Vector vectorPesawattbSession_cbRoom = new Vector();
-        tbSession_cbRoom = new JComboBox();
-		tbSession_cbRoom.setModel(new DefaultComboBoxModel(vectorPesawattbSession_cbRoom));
-		tbSession_cbRoom.setSelectedIndex(-1);
-		tbSession_cbRoom.setEditable(true);
-		JTextField texttbSession_cbRoom = (JTextField)tbSession_cbRoom.getEditor().getEditorComponent();
-		texttbSession_cbRoom.setFocusable(true);
-		texttbSession_cbRoom.setText("");
-		texttbSession_cbRoom.addKeyListener(new ComboListener(tbSession_cbRoom,vectorPesawattbSession_cbRoom));
-		tbSession_cbRoom.setBounds(144, 56, 165, 24);
-		pnRoom.add(tbSession_cbRoom);
 		frame.getContentPane().add(tbPanel);
 		
 		// povoamento
@@ -528,7 +503,7 @@ public class GraphInterface {
 		
 		JButton btnNewButton = new JButton("New button");
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton button_2 = new JButton("New button");
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -563,7 +538,7 @@ public class GraphInterface {
 					.addContainerGap(65, Short.MAX_VALUE))
 				.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup()
 					.addContainerGap(270, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1)
+					.addComponent(button_2)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnNewButton)
 					.addContainerGap())
@@ -601,7 +576,7 @@ public class GraphInterface {
 					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNewButton)
-						.addComponent(btnNewButton_1))
+						.addComponent(button_2))
 					.addContainerGap())
 		);
 		panel_1.setLayout(gl_panel_1);
