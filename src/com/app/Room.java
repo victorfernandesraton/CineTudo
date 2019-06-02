@@ -65,6 +65,6 @@ public abstract class Room {
 
 	@Override
 	public String toString() {
-		return "\nRoom [id=" + id + ", capacity=" + capacity + "]\n";
+		return this.id + "\t," + this.capacity;
 	}
 }

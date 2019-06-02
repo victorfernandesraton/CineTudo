@@ -38,8 +38,7 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [price=" + price + ", user=" + user + ", room=" + room + ", movie=" + movie + ", start=" + start
-				+ ", end=" + end + "]";
+		return "\nTicket U$" + this.price+"\n\nCLIENT\n"+"Name:\t"+this.user.getName()+"\nCPF:\t"+this.user.getCpf()+"\nAge:\t"+this.user.getAge()+"\n\nMOVIE:\n"+this.movie.toString()+"\tStart in:"+this.start+"\n";
 	}
 
 
