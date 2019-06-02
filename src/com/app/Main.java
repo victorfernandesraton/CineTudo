@@ -34,6 +34,7 @@ public class Main {
 		User user = new User("teste","1212", LocalDate.parse("2012-04-16"));
 		System.out.print(session.buyTickets(user).toString());
 		System.out.print(session.buyTickets(user).toString());
+		System.out.print(room.addSessio(session));
 		System.out.println(session.toString());
 		
 		

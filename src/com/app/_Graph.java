@@ -233,9 +233,7 @@ public class _Graph extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        tbMovie_cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+    
         tbMovie_cbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbMovie_cbCategoryActionPerformed(evt);
@@ -799,8 +797,8 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbMovie_cbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_cbCategoryActionPerformed
         // TODO add your handling code here:
-        this.removeAll();
-        
+        Movie m = new Movie(LocalTime.parse("02:00"), "teste", "Teste", "teste", "teste");
+        System.out.println(tbMovie_cbCategory.getSelectedItem().equals(m));
     }//GEN-LAST:event_tbMovie_cbCategoryActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -895,6 +893,6 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JPanel pnMovie;
     private javax.swing.JTabbedPane pnTable;
-    private javax.swing.JComboBox<String> tbMovie_cbCategory;
+    private javax.swing.JComboBox<Movie> tbMovie_cbCategory;
     // End of variables declaration//GEN-END:variables
 }

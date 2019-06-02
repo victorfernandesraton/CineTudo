@@ -140,6 +140,10 @@ public class Session implements BuyPass {
    public double price() {
 	   return room.getPrice();
    }
+
+   public LocalDateTime getStart() {
+       return this.start;
+   }
 		
 	@Override
 	public Ticket buyTickets(User user) { 
