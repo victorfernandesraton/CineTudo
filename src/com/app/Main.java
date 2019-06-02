@@ -29,7 +29,7 @@ public class Main {
 		}
 		// teste classe
 		Room room = new Room3d("1212",2);
-		Movie movie =  new Movie(LocalTime.parse("02:30"),"Avangers: Ultimato","Thanos is die and batmam kill all heroes of planet because her is unique hero ever exist");
+		Movie movie =  new Movie(LocalTime.parse("02:30"),"Avangers: Ultimato","Tarantino","terror","Thanos is die and batmam kill all heroes of planet because her is unique hero ever exist");
 		Session session = new Session(room,movie,LocalDate.parse("2019-04-12"),LocalTime.parse("14:30:00"));
 		User user = new User("teste","1212", LocalDate.parse("2012-04-16"));
 		System.out.print(session.buyTickets(user).toString());

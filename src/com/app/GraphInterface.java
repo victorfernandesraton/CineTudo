@@ -668,8 +668,8 @@ public class GraphInterface {
 					min = "0"+min;
 				}
 				String time = hr+":"+min;
-				Movie mv = new Movie(LocalTime.parse(time), tbMovie_tfTitle2.getText() , tbMovie_taDescription.getText());
-				movieList.add(mv);
+//				Movie mv = new Movie(LocalTime.parse(time), tbMovie_tfTitle2.getText() , tbMovie_taDescription.getText());
+//				movieList.add(mv);
 				
 //				for (Movie obj : movieList) {
 //					tbSession_cbMovie.addItem(obj);
