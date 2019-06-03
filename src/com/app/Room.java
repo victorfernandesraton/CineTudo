@@ -1,5 +1,6 @@
 package com.app;
-
+import java.util.ArrayList;
+import java.time.*;
 /**
  * @author Victor
  * @version 2
@@ -11,6 +12,7 @@ public abstract class Room {
     protected double price;
     protected static boolean is3d;
     protected static String type;
+    protected ArrayList<Session> listSession = new ArrayList<Session>(); 
     /**
      * This is a constructor of Room class
      * @param id
@@ -63,8 +65,43 @@ public abstract class Room {
         Room.type = type;
     }
 
+    public boolean addSessio(Movie movie, LocalDate date, LocalTime startTime, int ocupation) {
+        Session s = new Session(this, movie, date, startTime, ocupation);
+        if (listSession.add(s)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addSessio(Session s) {
+        if (listSession.add(s) && s.getRoom().equals(this) ) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean sessionExist(LocalDateTime local) {
+        for (Session s : listSession) {
+            if (s.getStart().equals(local)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Session getSession(LocalDateTime local) {
+        if (sessionExist(local)) {
+            for (Session s : listSession) {
+                if (s.getStart().equals(local)) {
+                    return s;
+                }
+            }
+        }
+        return null;
+    }
+    
 	@Override
 	public String toString() {
-		return "\nRoom [id=" + id + ", capacity=" + capacity + "]\n";
+		return this.id + "\t," + this.capacity;
 	}
 }

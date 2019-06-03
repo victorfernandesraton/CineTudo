@@ -8,18 +8,22 @@ import java.time.*;
 
 public class Movie {
     private LocalTime timeDur;
-    private String title, description, sinopse, category, director;
+    private String title, description, category, director;
     private int classification;
 
 	/**
      * This is a cosnructor of the Movie 
      * @param timeDur
      * @param title
+     * @param director
+     * @param category
      * @param description
      */
-    public Movie(LocalTime timeDur, String title, String description) {
+    public Movie(LocalTime timeDur, String title, String director, String category,  String description) {
         this.timeDur = timeDur;
         this.title = title;
+        this.director = director;
+        this.category = category;
         this.description = description;
     }
 
@@ -75,14 +79,6 @@ public class Movie {
 		this.classification = classification;
 	}
 
-	public String getSinopse() {
-		return sinopse;
-	}
-
-	public void setSinopse(String sinopse) {
-		this.sinopse = sinopse;
-	}
-
 	public String getCategory() {
 		return category;
 	}
@@ -93,8 +89,6 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "\nMovie [timeDur=" + timeDur + ", title=" + title + ", description=" + description + ", sinopse="
-				+ sinopse + ", category=" + category + ", director=" + director + ", classification=" + classification
-				+ "]\n";
+		return this.title + "\t,"+this.director+"\t,"+this.category;
 	}
 }

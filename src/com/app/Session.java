@@ -140,6 +140,10 @@ public class Session implements BuyPass {
    public double price() {
 	   return room.getPrice();
    }
+
+   public LocalDateTime getStart() {
+       return this.start;
+   }
 		
 	@Override
 	public Ticket buyTickets(User user) { 
@@ -159,8 +163,6 @@ public class Session implements BuyPass {
 
 	@Override
 	public String toString() {
-		return "\nSession [room=" + room + ", movie=" + movie + ", start=" + start + ", end=" + end + ", date=" + date
-				+ ", startTime=" + startTime + ", capacity=" + capacity + ", ocupation=" + ocupation + ", price="
-				+ price() + "]\n";
+		return this.room.getId()+"\t,"+this.start.toString() +"\t" + this.movie.getTitle()+"\t"+this.ocupation;
 	}
 }
