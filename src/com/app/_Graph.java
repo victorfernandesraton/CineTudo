@@ -23,6 +23,7 @@ import java.util.Vector;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -101,8 +102,15 @@ public class _Graph extends javax.swing.JFrame {
         btnTypeContent = new javax.swing.JPanel();
         tbRoom_rdNormal = new javax.swing.JRadioButton();
         tbRoom_rd3D = new javax.swing.JRadioButton();
+        
         tbRoom_lbTitle = new javax.swing.JLabel();
         tbRoom_btnConfirm = new javax.swing.JButton();
+        tbRoom_btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	btnRoom_btnConfirmActionPerformed(evt);
+            }
+        });
+
         tbRoom_btnClear = new javax.swing.JButton();
         pnSession = new javax.swing.JPanel();
         tbSession_title = new javax.swing.JLabel();
@@ -138,6 +146,9 @@ public class _Graph extends javax.swing.JFrame {
         tbTicket_lbPrice = new javax.swing.JLabel();
         tbTickect_tfPrice = new javax.swing.JTextField();
         
+        // BUTTON GROUPS
+        	btnGroupMenu.add(tbRoom_rd3D);
+        	btnGroupMenu.add(tbRoom_rdNormal);
         // POVOAMENTO DE VETORES
         
 	        // CATEGORIAS
@@ -521,7 +532,14 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbRoom.setText("Room");
 
-        tbSession_cbRoom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+		tbSession_cbRoom.setModel(new DefaultComboBoxModel(vectorRooms));
+		tbSession_cbRoom.setSelectedIndex(-1);
+		tbSession_cbRoom.setEditable(true);
+		JTextField text_tbSession_cbRoom = (JTextField)tbSession_cbRoom.getEditor().getEditorComponent();
+		text_tbSession_cbRoom.setFocusable(true);
+		text_tbSession_cbRoom.setText("");
+		text_tbSession_cbRoom.addKeyListener(new ComboListener(tbSession_cbRoom,vectorRooms));
+
         tbSession_cbRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbSession_cbRoomActionPerformed(evt);
@@ -797,6 +815,23 @@ public class _Graph extends javax.swing.JFrame {
         );
 
         pack();
+        tbRoom_cbDefault.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (tbRoom_cbDefault.isSelected()) {
+        			tbRoom_spPrice.setEnabled(false);
+        		} else {
+        			tbRoom_spPrice.setValue(0);
+        			tbRoom_spPrice.setEnabled(true);
+        		}
+        	}
+        });
+        
+        tbRoom_rd3D.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+            	if (tbRoom_cbDefault.isSelected())
+                	tbRoom_spPrice.setValue(30);
+        	}
+        });
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox3ActionPerformed
@@ -847,6 +882,8 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbRoom_rdNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_rdNormalActionPerformed
         // TODO add your handling code here:
+    	if (tbRoom_cbDefault.isSelected())
+    	tbRoom_spPrice.setValue(25);
     }//GEN-LAST:event_tbRoom_rdNormalActionPerformed
 
     private void tbRoom_tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_tfIdActionPerformed
@@ -886,6 +923,16 @@ public class _Graph extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
+    
+    private void btnRoom_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    	if (tbRoom_rd3D.isSelected())
+    		vectorRooms.add(new Room3d(tbRoom_tfId.getText(),Integer.parseInt(tbRoom_spOcupation.getValue().toString()),Double.parseDouble(tbRoom_spPrice.getValue().toString())));
+    	else if (tbRoom_rdNormal.isSelected()) {
+    		vectorRooms.add(new RoomNormal(tbRoom_tfId.getText(),Integer.parseInt(tbRoom_spOcupation.getValue().toString()),Double.parseDouble(tbRoom_spPrice.getValue().toString())));	
+    	}
+    }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
+
 
     /**
      * @param args the command line arguments
