@@ -755,9 +755,6 @@ public class _Graph extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    protected void tbMovie_btnConfirmActionPerformed(ActionEvent evt) {
-    }
-
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }                                          
