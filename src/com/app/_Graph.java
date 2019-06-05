@@ -940,7 +940,42 @@ public class _Graph extends javax.swing.JFrame {
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
 
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        try {
+            LocalDate date = LocalDate.parse(tbSession_cbYear.getSelectedItem().toString()+"-"+tbSession_cbMounth.getSelectedItem().toString()+"-"+tbSession_cbDay.getSelectedItem().toString());
+            String h, m;
+            
+            if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
+                h = "0"+tbSession_cbHr.getSelectedItem().toString();
+            } else h = tbSession_cbHr.getSelectedItem().toString();
+
+            if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
+                m = "0"+tbSession_cbHr.getSelectedItem().toString();
+            } else m = tbSession_cbHr.getSelectedItem().toString();
+
+            LocalTime time = LocalTime.parse(h+":"+m);
+            Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
+            Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
+            vectorSessions.add(new Session(r,movie,date,time));
+        } catch (Exception e) {
+        }
+    }
+
+    private Movie getMovieFromVector(String movie, Vector<Movie> vectorMovie) throws NullPointerException {
+        for (Movie mov : vectorMovie) {
+            if (mov.toString().equals(movie)) {
+                return mov;
+            }
+        }
+        return null;
+    }
+
+    private Room getRoomFromVector(String room, Vector<Room> vectorRoom) throws NullPointerException {
+        for (Room r : vectorRoom) {
+            if (r.toString().equals(room)) {
+                return r;
+            }
+        }
+        return null;
     }
 
     /**
