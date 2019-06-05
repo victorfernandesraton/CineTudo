@@ -50,21 +50,20 @@ public class _Graph extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        btnGroupType = new javax.swing.ButtonGroup();
+        btnGroupMenu = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbMenu = new javax.swing.JLabel();
         btnMovie = new javax.swing.JButton();
         btnRoom = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnSession = new javax.swing.JButton();
+        btnTicket = new javax.swing.JButton();
+        rdCreate = new javax.swing.JRadioButton();
+        rdEdit = new javax.swing.JRadioButton();
+        rdSearch = new javax.swing.JRadioButton();
         tbPannel = new javax.swing.JTabbedPane();
         pnMovie = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        tbMovie_title = new javax.swing.JLabel();
         tbMovie_lbTitle = new javax.swing.JLabel();
         tbMovie_tfTitle = new javax.swing.JTextField();
         tbMovie_lbDirector = new javax.swing.JLabel();
@@ -83,29 +82,29 @@ public class _Graph extends javax.swing.JFrame {
         tbMovie_cbClassification = new javax.swing.JComboBox<>();
         tbMovie_cbcategory = new javax.swing.JComboBox<>();
         pmRoom = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        tbRoom_title = new javax.swing.JLabel();
         tbRoom_lbId = new javax.swing.JLabel();
         tbRoom_tfId = new javax.swing.JTextField();
         tbRoom_lbOcupation = new javax.swing.JLabel();
         tbRoom_spOcupation = new javax.swing.JSpinner();
         tbRoom_spPrice = new javax.swing.JSpinner();
         tbRoom_lbPrice = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel12 = new javax.swing.JPanel();
+        tbRoom_cbDefault = new javax.swing.JCheckBox();
+        btnTypeContent = new javax.swing.JPanel();
         tbRoom_rdNormal = new javax.swing.JRadioButton();
         tbRoom_rd3D = new javax.swing.JRadioButton();
         tbRoom_lbTitle = new javax.swing.JLabel();
         tbRoom_btnConfirm = new javax.swing.JButton();
         tbRoom_btnClear = new javax.swing.JButton();
         pnSession = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        tbSession_title = new javax.swing.JLabel();
         lbSession_cbMovie = new javax.swing.JComboBox<>();
         tbSession_lbRoom = new javax.swing.JLabel();
         tbSession_cbRoom = new javax.swing.JComboBox<>();
         tbSession_lbMovie = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        tbSession_lbLotation = new javax.swing.JLabel();
         tbSession_spLotation = new javax.swing.JSpinner();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        tbSession_cbDefault = new javax.swing.JCheckBox();
         tbSession_lbTime = new javax.swing.JLabel();
         tbSession_cbDay = new javax.swing.JComboBox<>();
         tbSession_cbMounth = new javax.swing.JComboBox<>();
@@ -115,31 +114,25 @@ public class _Graph extends javax.swing.JFrame {
         tbSession_lbtime = new javax.swing.JLabel();
         tbSession_cbHr = new javax.swing.JComboBox<>();
         tbSession_cbMin = new javax.swing.JComboBox<>();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        pnTicket = new javax.swing.JPanel();
+        tbTicket_title = new javax.swing.JLabel();
+        tbTicket_lbSession = new javax.swing.JLabel();
         jComboBox8 = new javax.swing.JComboBox<>();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        tbTicket_lbName = new javax.swing.JLabel();
+        tbTicket_tfName = new javax.swing.JTextField();
+        tbTicket_lbAge = new javax.swing.JLabel();
+        tbTicket_spAge = new javax.swing.JSpinner();
+        tbTicket_cbStudy = new javax.swing.JCheckBox();
+        btnConfirm = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        tbTicket_tfCpf = new javax.swing.JTextField();
+        tbTicket_lbCpf = new javax.swing.JLabel();
+        tbTicket_lbPrice = new javax.swing.JLabel();
         tbTickect_tfPrice = new javax.swing.JTextField();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Menu");
+        lbMenu.setText("Menu");
 
         btnMovie.setText("Add/Edit Movie");
         btnMovie.addActionListener(new java.awt.event.ActionListener() {
@@ -148,26 +141,22 @@ public class _Graph extends javax.swing.JFrame {
             }
         });
 
-        btnRoom.setText("jButton2");
+        btnRoom.setText("Add/Edit Room");
         btnRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRoomActionPerformed(evt);
             }
         });
 
-        jButton3.setText("jButton3");
+        btnSession.setText("Add/Edit Session");
 
-        jButton4.setText("jButton4");
+        btnTicket.setText("Add/Edit Ticket");
 
-        jButton5.setText("jButton5");
+        rdCreate.setText("Create");
 
-        jButton6.setText("jButton6");
+        rdEdit.setText("Edit");
 
-        jButton7.setText("jButton7");
-
-        jButton8.setText("jButton8");
-
-        jButton9.setText("jButton9");
+        rdSearch.setText("Search");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,48 +166,42 @@ public class _Graph extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addComponent(jLabel1))
+                        .addComponent(lbMenu))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRoom)
-                            .addComponent(btnMovie)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8)
-                            .addComponent(jButton9))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSession, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rdCreate)
+                            .addComponent(rdEdit)
+                            .addComponent(rdSearch)
+                            .addComponent(btnRoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lbMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMovie)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRoom)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(btnSession)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9)
+                .addComponent(btnTicket)
+                .addGap(18, 18, 18)
+                .addComponent(rdCreate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdSearch)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("Movie");
+        tbMovie_title.setText("Movie");
 
         tbMovie_lbTitle.setText("Title");
 
@@ -286,7 +269,7 @@ public class _Graph extends javax.swing.JFrame {
                         .addComponent(tbMovie_lbDescription))
                     .addGroup(pnMovieLayout.createSequentialGroup()
                         .addGap(185, 185, 185)
-                        .addComponent(jLabel2)))
+                        .addComponent(tbMovie_title)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMovieLayout.createSequentialGroup()
                 .addContainerGap()
@@ -302,7 +285,7 @@ public class _Graph extends javax.swing.JFrame {
                     .addComponent(tbMovie_cbClassification, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(tbMovie_lbDuration)
                     .addGroup(pnMovieLayout.createSequentialGroup()
                         .addComponent(tbMovie_spDurHr, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,7 +305,7 @@ public class _Graph extends javax.swing.JFrame {
             pnMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnMovieLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(tbMovie_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbMovie_lbTitle)
@@ -359,7 +342,7 @@ public class _Graph extends javax.swing.JFrame {
 
         tbPannel.addTab("Movie", pnMovie);
 
-        jLabel10.setText("Room");
+        tbRoom_title.setText("Room");
 
         tbRoom_lbId.setText("ID");
 
@@ -373,9 +356,9 @@ public class _Graph extends javax.swing.JFrame {
 
         tbRoom_lbPrice.setText("Price U$");
 
-        jCheckBox1.setText("Default");
+        tbRoom_cbDefault.setText("Default");
 
-        jPanel12.setPreferredSize(new java.awt.Dimension(190, 100));
+        btnTypeContent.setPreferredSize(new java.awt.Dimension(190, 100));
 
         tbRoom_rdNormal.setText("Normal");
         tbRoom_rdNormal.addActionListener(new java.awt.event.ActionListener() {
@@ -386,20 +369,20 @@ public class _Graph extends javax.swing.JFrame {
 
         tbRoom_rd3D.setText("3D");
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnTypeContentLayout = new javax.swing.GroupLayout(btnTypeContent);
+        btnTypeContent.setLayout(btnTypeContentLayout);
+        btnTypeContentLayout.setHorizontalGroup(
+            btnTypeContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnTypeContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(btnTypeContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tbRoom_rdNormal)
                     .addComponent(tbRoom_rd3D))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        btnTypeContentLayout.setVerticalGroup(
+            btnTypeContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnTypeContentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tbRoom_rdNormal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -431,18 +414,18 @@ public class _Graph extends javax.swing.JFrame {
                                 .addGroup(pmRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tbRoom_lbPrice)
                                     .addComponent(tbRoom_spPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1))))
+                                    .addComponent(tbRoom_cbDefault))))
                         .addGap(22, 22, 22)
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnTypeContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pmRoomLayout.createSequentialGroup()
                         .addGap(163, 163, 163)
-                        .addComponent(jLabel10))
+                        .addComponent(tbRoom_title))
                     .addGroup(pmRoomLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(tbRoom_lbId)
                         .addGap(185, 185, 185)
                         .addComponent(tbRoom_lbTitle)))
-                .addGap(47, 89, Short.MAX_VALUE))
+                .addGap(47, 98, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pmRoomLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(tbRoom_btnClear)
@@ -454,7 +437,7 @@ public class _Graph extends javax.swing.JFrame {
             pmRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pmRoomLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10)
+                .addComponent(tbRoom_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pmRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbRoom_lbId)
@@ -472,8 +455,8 @@ public class _Graph extends javax.swing.JFrame {
                             .addComponent(tbRoom_spOcupation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tbRoom_spPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox1))
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tbRoom_cbDefault))
+                    .addComponent(btnTypeContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(pmRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbRoom_btnConfirm)
@@ -483,7 +466,7 @@ public class _Graph extends javax.swing.JFrame {
 
         tbPannel.addTab("Room", pmRoom);
 
-        jLabel15.setText("Session");
+        tbSession_title.setText("Session");
 
         lbSession_cbMovie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         lbSession_cbMovie.addActionListener(new java.awt.event.ActionListener() {
@@ -503,12 +486,12 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbMovie.setText("Movie");
 
-        jLabel19.setText("Lotation");
+        tbSession_lbLotation.setText("Lotation");
 
-        jCheckBox2.setText("Default");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        tbSession_cbDefault.setText("Default");
+        tbSession_cbDefault.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                tbSession_cbDefaultActionPerformed(evt);
             }
         });
 
@@ -569,23 +552,23 @@ public class _Graph extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(pnSessionLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tbSession_cbDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addGroup(pnSessionLayout.createSequentialGroup()
                                                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(tbSession_cbMin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(tbSession_cbMounth, 0, 90, Short.MAX_VALUE))
                                                 .addGap(18, 18, 18)
-                                                .addComponent(tbSession_cbYear, 0, 85, Short.MAX_VALUE))))))
+                                                .addComponent(tbSession_cbYear, 0, 77, Short.MAX_VALUE))))))
                             .addGroup(pnSessionLayout.createSequentialGroup()
                                 .addComponent(tbSession_lbRoom)
                                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnSessionLayout.createSequentialGroup()
                                         .addGap(129, 129, 129)
-                                        .addComponent(jLabel15))
+                                        .addComponent(tbSession_title))
                                     .addGroup(pnSessionLayout.createSequentialGroup()
                                         .addGap(151, 151, 151)
-                                        .addComponent(jLabel19)))
+                                        .addComponent(tbSession_lbLotation)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -593,15 +576,15 @@ public class _Graph extends javax.swing.JFrame {
             pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnSessionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15)
+                .addComponent(tbSession_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
+                    .addComponent(tbSession_lbLotation)
                     .addComponent(tbSession_lbRoom))
                 .addGap(7, 7, 7)
                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbSession_spLotation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2)
+                    .addComponent(tbSession_cbDefault)
                     .addComponent(tbSession_cbRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -628,9 +611,9 @@ public class _Graph extends javax.swing.JFrame {
 
         tbPannel.addTab("Session", pnSession);
 
-        jLabel21.setText("BuyPass");
+        tbTicket_title.setText("BuyPass");
 
-        jLabel22.setText("Session");
+        tbTicket_lbSession.setText("Session");
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox8.addActionListener(new java.awt.event.ActionListener() {
@@ -639,30 +622,30 @@ public class _Graph extends javax.swing.JFrame {
             }
         });
 
-        jLabel23.setText("Name");
+        tbTicket_lbName.setText("Name");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        tbTicket_tfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                tbTicket_tfNameActionPerformed(evt);
             }
         });
 
-        jLabel24.setText("Age");
+        tbTicket_lbAge.setText("Age");
 
-        jCheckBox3.setText("I'm Study");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        tbTicket_cbStudy.setText("I'm Study");
+        tbTicket_cbStudy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                tbTicket_cbStudyActionPerformed(evt);
             }
         });
 
-        jButton15.setText("jButton15");
+        btnConfirm.setText("Confirm");
 
-        jButton16.setText("jButton16");
+        btnClear.setText("Clear");
 
-        jLabel25.setText("CPF");
+        tbTicket_lbCpf.setText("CPF");
 
-        jLabel3.setText("Price (U$)");
+        tbTicket_lbPrice.setText("Price (U$)");
 
         tbTickect_tfPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -670,167 +653,89 @@ public class _Graph extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnTicketLayout = new javax.swing.GroupLayout(pnTicket);
+        pnTicket.setLayout(pnTicketLayout);
+        pnTicketLayout.setHorizontalGroup(
+            pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTicketLayout.createSequentialGroup()
+                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnTicketLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton16))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnClear))
+                    .addGroup(pnTicketLayout.createSequentialGroup()
+                        .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tbTicket_tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addGap(188, 188, 188)
-                                    .addComponent(jLabel21))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(tbTicket_title))
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jLabel22))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(tbTicket_lbSession))
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jLabel23))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(tbTicket_lbName))
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addContainerGap()
                                     .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jLabel24))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(tbTicket_lbAge))
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tbTicket_spAge, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jCheckBox3))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(tbTicket_cbStudy))
+                                .addGroup(pnTicketLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel25)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tbTicket_lbCpf)
+                                        .addComponent(tbTicket_tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 54, Short.MAX_VALUE))
+                        .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnTicketLayout.createSequentialGroup()
+                                .addComponent(tbTicket_lbPrice)
+                                .addGap(0, 56, Short.MAX_VALUE))
                             .addComponent(tbTickect_tfPrice))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton15)
+                .addComponent(btnConfirm)
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        pnTicketLayout.setVerticalGroup(
+            pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTicketLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel21)
+                .addComponent(tbTicket_title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel3))
+                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbTicket_lbSession)
+                    .addComponent(tbTicket_lbPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbTickect_tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
+                .addComponent(tbTicket_lbName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbTicket_tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24)
+                .addComponent(tbTicket_lbAge)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox3))
+                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbTicket_spAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbTicket_cbStudy))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel25)
+                .addComponent(tbTicket_lbCpf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbTicket_tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton15)
-                    .addComponent(jButton16))
+                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirm)
+                    .addComponent(btnClear))
                 .addContainerGap())
         );
 
-        tbPannel.addTab("tab4", jPanel5);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        tbPannel.addTab("tab5", jPanel6);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        tbPannel.addTab("tab6", jPanel7);
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        tbPannel.addTab("tab7", jPanel8);
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        tbPannel.addTab("tab8", jPanel9);
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        tbPannel.addTab("tab9", jPanel10);
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        tbPannel.addTab("tab10", jPanel11);
+        tbPannel.addTab("Ticket", pnTicket);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -857,15 +762,6 @@ public class _Graph extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                          
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void tbSession_cbDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_tbSession_cbDayActionPerformed
-
     private void btnMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMovieActionPerformed
         // TODO add your handling code here:
         tbPannel.setSelectedComponent(pnMovie);
@@ -875,13 +771,46 @@ public class _Graph extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRoomActionPerformed
 
-    private void tbMovie_btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_btnClearActionPerformed
+    private void tbTickect_tfPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTickect_tfPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbMovie_btnClearActionPerformed
+    }//GEN-LAST:event_tbTickect_tfPriceActionPerformed
 
-    private void tbMovie_tfDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_tfDirectorActionPerformed
+    private void tbTicket_cbStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_cbStudyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbMovie_tfDirectorActionPerformed
+    }//GEN-LAST:event_tbTicket_cbStudyActionPerformed
+
+    private void tbTicket_tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_tfNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbTicket_tfNameActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void tbSession_cbDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tbSession_cbDayActionPerformed
+
+    private void tbSession_cbDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDefaultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbSession_cbDefaultActionPerformed
+
+    private void tbSession_cbRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbSession_cbRoomActionPerformed
+
+    private void lbSession_cbMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbSession_cbMovieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbSession_cbMovieActionPerformed
+
+    private void tbRoom_rdNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_rdNormalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbRoom_rdNormalActionPerformed
+
+    private void tbRoom_tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_tfIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbRoom_tfIdActionPerformed
 
     private void tbMovie_cbcategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_cbcategoryActionPerformed
         // TODO add your handling code here:
@@ -889,89 +818,50 @@ public class _Graph extends javax.swing.JFrame {
         System.out.println(tbMovie_cbcategory.getSelectedItem().equals(m));
     }//GEN-LAST:event_tbMovie_cbcategoryActionPerformed
 
+    private void tbMovie_btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_btnClearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbMovie_btnClearActionPerformed
+
+    private void tbMovie_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_btnConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbMovie_btnConfirmActionPerformed
+
+    private void tbMovie_tfDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_tfDirectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbMovie_tfDirectorActionPerformed
+
     private void tbMovie_tfTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_tfTitleActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
-
-    private void tbSession_cbRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbRoomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbSession_cbRoomActionPerformed
-
-    private void tbRoom_tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_tfIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbRoom_tfIdActionPerformed
-
-    private void tbRoom_rdNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_rdNormalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbRoom_rdNormalActionPerformed
-
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox8ActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void tbTickect_tfPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTickect_tfPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbTickect_tfPriceActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnConfirm;
+    private javax.swing.ButtonGroup btnGroupMenu;
+    private javax.swing.ButtonGroup btnGroupType;
     private javax.swing.JButton btnMovie;
     private javax.swing.JButton btnRoom;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JButton btnSession;
+    private javax.swing.JButton btnTicket;
+    private javax.swing.JPanel btnTypeContent;
     private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel lbMenu;
     private javax.swing.JComboBox<String> lbSession_cbMovie;
     private javax.swing.JPanel pmRoom;
     private javax.swing.JPanel pnMovie;
     private javax.swing.JPanel pnSession;
+    private javax.swing.JPanel pnTicket;
+    private javax.swing.JRadioButton rdCreate;
+    private javax.swing.JRadioButton rdEdit;
+    private javax.swing.JRadioButton rdSearch;
     private javax.swing.JButton tbMovie_btnClear;
     private javax.swing.JButton tbMovie_btnConfirm;
     private javax.swing.JComboBox<String> tbMovie_cbClassification;
@@ -987,9 +877,11 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JTextArea tbMovie_taDescription;
     private javax.swing.JTextField tbMovie_tfDirector;
     private javax.swing.JTextField tbMovie_tfTitle;
+    private javax.swing.JLabel tbMovie_title;
     private javax.swing.JTabbedPane tbPannel;
     private javax.swing.JButton tbRoom_btnClear;
     private javax.swing.JButton tbRoom_btnConfirm;
+    private javax.swing.JCheckBox tbRoom_cbDefault;
     private javax.swing.JLabel tbRoom_lbId;
     private javax.swing.JLabel tbRoom_lbOcupation;
     private javax.swing.JLabel tbRoom_lbPrice;
@@ -999,19 +891,33 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JSpinner tbRoom_spOcupation;
     private javax.swing.JSpinner tbRoom_spPrice;
     private javax.swing.JTextField tbRoom_tfId;
+    private javax.swing.JLabel tbRoom_title;
     private javax.swing.JButton tbSession_btnClear;
     private javax.swing.JButton tbSession_btnConfirm;
     private javax.swing.JComboBox<String> tbSession_cbDay;
+    private javax.swing.JCheckBox tbSession_cbDefault;
     private javax.swing.JComboBox<String> tbSession_cbHr;
     private javax.swing.JComboBox<String> tbSession_cbMin;
     private javax.swing.JComboBox<String> tbSession_cbMounth;
     private javax.swing.JComboBox<String> tbSession_cbRoom;
     private javax.swing.JComboBox<String> tbSession_cbYear;
+    private javax.swing.JLabel tbSession_lbLotation;
     private javax.swing.JLabel tbSession_lbMovie;
     private javax.swing.JLabel tbSession_lbRoom;
     private javax.swing.JLabel tbSession_lbTime;
     private javax.swing.JLabel tbSession_lbtime;
     private javax.swing.JSpinner tbSession_spLotation;
+    private javax.swing.JLabel tbSession_title;
     private javax.swing.JTextField tbTickect_tfPrice;
+    private javax.swing.JCheckBox tbTicket_cbStudy;
+    private javax.swing.JLabel tbTicket_lbAge;
+    private javax.swing.JLabel tbTicket_lbCpf;
+    private javax.swing.JLabel tbTicket_lbName;
+    private javax.swing.JLabel tbTicket_lbPrice;
+    private javax.swing.JLabel tbTicket_lbSession;
+    private javax.swing.JSpinner tbTicket_spAge;
+    private javax.swing.JTextField tbTicket_tfCpf;
+    private javax.swing.JTextField tbTicket_tfName;
+    private javax.swing.JLabel tbTicket_title;
     // End of variables declaration//GEN-END:variables
 }
