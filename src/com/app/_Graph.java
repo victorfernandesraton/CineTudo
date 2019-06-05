@@ -126,6 +126,12 @@ public class _Graph extends javax.swing.JFrame {
         tbSession_cbMounth = new javax.swing.JComboBox<>();
         tbSession_cbYear = new javax.swing.JComboBox<>();
         tbSession_btnConfirm = new javax.swing.JButton();
+        tbSession_btnConfirm.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tbSession_btnConfirmActionPerformed(e);
+            }
+        });
         tbSession_btnClear = new javax.swing.JButton();
         tbSession_lbtime = new javax.swing.JLabel();
         tbSession_cbHr = new javax.swing.JComboBox<>();
@@ -933,6 +939,9 @@ public class _Graph extends javax.swing.JFrame {
     	}
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
 
+    private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
     /**
      * @param args the command line arguments
