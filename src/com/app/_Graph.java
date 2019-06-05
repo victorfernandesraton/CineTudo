@@ -32,6 +32,12 @@ public class _Graph extends javax.swing.JFrame {
 
     public ArrayList<Movie> movies = new ArrayList<Movie>();
     public Vector<Movie> vectorMovies = new Vector<Movie>();
+    public Vector<Room> vectorRooms = new Vector<Room>();    
+    public Vector<Session> vectorSessions = new Vector<Session>();
+    public Vector<String> vectorCategory = new Vector<String>();
+    public Vector<String> vectorClassification = new Vector<String>();
+    
+   
 
     /**
      * Creates new form _Graph
@@ -129,6 +135,24 @@ public class _Graph extends javax.swing.JFrame {
         tbTicket_lbCpf = new javax.swing.JLabel();
         tbTicket_lbPrice = new javax.swing.JLabel();
         tbTickect_tfPrice = new javax.swing.JTextField();
+        
+        // POVOAMENTO DE VETORES
+        
+	        // CATEGORIAS
+	        vectorCategory.add("Ação");
+	        vectorCategory.add("Aventura");
+	        vectorCategory.add("Romance");
+	        vectorCategory.add("Infantil");
+	        vectorCategory.add("Animação");
+	        vectorCategory.add("Terror");
+	        
+	        // CLASSIFICAÇÃO
+	        vectorClassification.add("Livre");	        
+	        vectorClassification.add("10 anos");
+	        vectorClassification.add("12 anos");
+	        vectorClassification.add("16 anos");
+	        vectorClassification.add("18 anos");
+	        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
