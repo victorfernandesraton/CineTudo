@@ -81,12 +81,14 @@ public class _Graph extends javax.swing.JFrame {
         tbMovie_taDescription = new javax.swing.JTextArea();
         tbMovie_lbDuration = new javax.swing.JLabel();
         tbMovie_spDurHr = new javax.swing.JSpinner();
+        tbMovie_spDurHr.setModel(new SpinnerNumberModel(0, 0, 6, 1));
         jLabel9 = new javax.swing.JLabel();
         tbMovie_spDurationMin = new javax.swing.JSpinner();
+        tbMovie_spDurationMin.setModel(new SpinnerNumberModel(0, 0, 59, 1));
         tbMovie_btnConfirm = new javax.swing.JButton();
         tbMovie_btnClear = new javax.swing.JButton();
         tbMovie_cbClassification = new javax.swing.JComboBox<>();
-        tbMovie_cbcategory = new javax.swing.JComboBox<>();
+        tbMovie_cbCategory = new javax.swing.JComboBox<>();
         pmRoom = new javax.swing.JPanel();
         tbRoom_title = new javax.swing.JLabel();
         tbRoom_lbId = new javax.swing.JLabel();
@@ -104,7 +106,7 @@ public class _Graph extends javax.swing.JFrame {
         tbRoom_btnClear = new javax.swing.JButton();
         pnSession = new javax.swing.JPanel();
         tbSession_title = new javax.swing.JLabel();
-        lbSession_cbMovie = new javax.swing.JComboBox<>();
+        tbSession_cbMovie = new javax.swing.JComboBox<>();
         tbSession_lbRoom = new javax.swing.JLabel();
         tbSession_cbRoom = new javax.swing.JComboBox<>();
         tbSession_lbMovie = new javax.swing.JLabel();
@@ -271,10 +273,22 @@ public class _Graph extends javax.swing.JFrame {
             }
         });
 
-        tbMovie_cbClassification.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        tbMovie_cbcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        tbMovie_cbcategory.addActionListener(new java.awt.event.ActionListener() {
+        tbMovie_cbClassification.setModel(new DefaultComboBoxModel(vectorClassification));
+		tbMovie_cbClassification.setSelectedIndex(-1);
+		tbMovie_cbClassification.setEditable(true);
+		JTextField text_tbMovie_cbClassification = (JTextField)tbMovie_cbClassification.getEditor().getEditorComponent();
+		text_tbMovie_cbClassification.setFocusable(true);
+		text_tbMovie_cbClassification.setText("");
+		text_tbMovie_cbClassification.addKeyListener(new ComboListener(tbMovie_cbClassification,vectorClassification));
+		
+        tbMovie_cbCategory.setModel(new DefaultComboBoxModel(vectorCategory));
+		tbMovie_cbCategory.setSelectedIndex(-1);
+		tbMovie_cbCategory.setEditable(true);
+		JTextField text_tbMovie_cbCategory = (JTextField)tbMovie_cbCategory.getEditor().getEditorComponent();
+		text_tbMovie_cbCategory.setFocusable(true);
+		text_tbMovie_cbCategory.setText("");
+		text_tbMovie_cbCategory.addKeyListener(new ComboListener(tbMovie_cbCategory,vectorCategory));
+		tbMovie_cbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbMovie_cbcategoryActionPerformed(evt);
             }
@@ -301,7 +315,7 @@ public class _Graph extends javax.swing.JFrame {
                     .addGroup(pnMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(tbMovie_lbDirector)
                         .addGroup(pnMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tbMovie_cbcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tbMovie_cbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tbMovie_lbCategory)
                             .addComponent(tbMovie_tfDirector, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(tbMovie_tfTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -346,7 +360,7 @@ public class _Graph extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tbMovie_lbCategory)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tbMovie_cbcategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tbMovie_cbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tbMovie_lbDuration)
@@ -491,11 +505,17 @@ public class _Graph extends javax.swing.JFrame {
         tbPannel.addTab("Room", pmRoom);
 
         tbSession_title.setText("Session");
-
-        lbSession_cbMovie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        lbSession_cbMovie.addActionListener(new java.awt.event.ActionListener() {
+        
+        tbSession_cbMovie.setModel(new DefaultComboBoxModel(vectorMovies));
+		tbSession_cbMovie.setSelectedIndex(-1);
+		tbSession_cbMovie.setEditable(true);
+		JTextField text_tbSession_cbMovie = (JTextField)tbSession_cbMovie.getEditor().getEditorComponent();
+		text_tbSession_cbMovie.setFocusable(true);
+		text_tbSession_cbMovie.setText("");
+		text_tbSession_cbMovie.addKeyListener(new ComboListener(tbSession_cbMovie,vectorMovies));
+		tbSession_cbMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbSession_cbMovieActionPerformed(evt);
+                tbSession_cbMovieActionPerformed(evt);
             }
         });
 
@@ -560,7 +580,7 @@ public class _Graph extends javax.swing.JFrame {
                                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tbSession_cbRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tbSession_lbMovie)
-                                    .addComponent(lbSession_cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tbSession_cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnSessionLayout.createSequentialGroup()
@@ -619,7 +639,7 @@ public class _Graph extends javax.swing.JFrame {
                     .addComponent(tbSession_cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbSession_cbMounth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbSession_cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbSession_cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tbSession_cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tbSession_lbtime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -821,9 +841,9 @@ public class _Graph extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbSession_cbRoomActionPerformed
 
-    private void lbSession_cbMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbSession_cbMovieActionPerformed
+    private void tbSession_cbMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbMovieActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbSession_cbMovieActionPerformed
+    }//GEN-LAST:event_tbSession_cbMovieActionPerformed
 
     private void tbRoom_rdNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbRoom_rdNormalActionPerformed
         // TODO add your handling code here:
@@ -835,8 +855,6 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbMovie_cbcategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_cbcategoryActionPerformed
         // TODO add your handling code here:
-        Movie m = new Movie(LocalTime.parse("02:00"), "teste", "Teste", "teste", "teste");
-        System.out.println(tbMovie_cbcategory.getSelectedItem().equals(m));
     }//GEN-LAST:event_tbMovie_cbcategoryActionPerformed
 
     private void tbMovie_btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_btnClearActionPerformed
@@ -845,6 +863,19 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbMovie_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_btnConfirmActionPerformed
         // TODO add your handling code here:
+    	
+    	String h;
+    	if (tbMovie_spDurHr.getValue().toString().length() < 2)
+    	h= "0"+tbMovie_spDurHr.getValue().toString();
+    	else h = tbMovie_spDurHr.getValue().toString();
+    	
+    	String m;
+    	if (tbMovie_spDurationMin.getValue().toString().length() < 2)
+    	m= "0"+tbMovie_spDurationMin.getValue().toString();
+    	else m = tbMovie_spDurationMin.getValue().toString();
+    	
+    	Movie movie = new Movie(LocalTime.parse(h+":"+m),tbMovie_tfTitle.getText(),tbMovie_tfDirector.getText(),tbMovie_cbCategory.getSelectedItem().toString(),tbMovie_taDescription.getText());
+    	vectorMovies.add(movie);
     }//GEN-LAST:event_tbMovie_btnConfirmActionPerformed
 
     private void tbMovie_tfDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbMovie_tfDirectorActionPerformed
@@ -875,7 +906,7 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbMenu;
-    private javax.swing.JComboBox<String> lbSession_cbMovie;
+    private javax.swing.JComboBox<String> tbSession_cbMovie;
     private javax.swing.JPanel pmRoom;
     private javax.swing.JPanel pnMovie;
     private javax.swing.JPanel pnSession;
@@ -886,7 +917,7 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JButton tbMovie_btnClear;
     private javax.swing.JButton tbMovie_btnConfirm;
     private javax.swing.JComboBox<String> tbMovie_cbClassification;
-    private javax.swing.JComboBox<String> tbMovie_cbcategory;
+    private javax.swing.JComboBox<String> tbMovie_cbCategory;
     private javax.swing.JLabel tbMovie_lbCategory;
     private javax.swing.JLabel tbMovie_lbClassification;
     private javax.swing.JLabel tbMovie_lbDescription;
