@@ -940,7 +940,6 @@ public class _Graph extends javax.swing.JFrame {
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
 
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
-        try {
             LocalDate date = LocalDate.parse(tbSession_cbYear.getSelectedItem().toString()+"-"+tbSession_cbMounth.getSelectedItem().toString()+"-"+tbSession_cbDay.getSelectedItem().toString());
             String h, m;
             
@@ -959,8 +958,6 @@ public class _Graph extends javax.swing.JFrame {
             vectorSessions.add(s);
             System.out.println(s.toString());
             
-        } catch (Exception e) {
-        }
     }
 
     private Movie getMovieFromVector(String movie, Vector<Movie> vectorMovie) throws NullPointerException {
