@@ -570,9 +570,9 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        tbSession_btnConfirm.setText("jButton13");
+        tbSession_btnConfirm.setText("Confirm");
 
-        tbSession_btnClear.setText("jButton14");
+        tbSession_btnClear.setText("Clear");
 
         tbSession_lbtime.setText("Time");
 
