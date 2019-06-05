@@ -955,7 +955,10 @@ public class _Graph extends javax.swing.JFrame {
             LocalTime time = LocalTime.parse(h+":"+m);
             Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
             Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
-            vectorSessions.add(new Session(r,movie,date,time));
+            Session s = new Session(r,movie,date,time);
+            vectorSessions.add(s);
+            System.out.println(s.toString());
+            
         } catch (Exception e) {
         }
     }
