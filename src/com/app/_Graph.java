@@ -39,6 +39,9 @@ public class _Graph extends javax.swing.JFrame {
     public Vector<String> vectorClassification = new Vector<String>();
     public Vector<String> vectorSessionHr = new Vector<String>();
     public Vector<String> vectorSessionMin = new Vector<String>();
+    public Vector<Integer> vectorSessionDays = new Vector<Integer>();
+    public Vector<Integer> vectorSessionMouth = new Vector<Integer>();
+    public Vector<Integer> vectorSessionYear = new Vector<Integer>();
     
    
 
@@ -58,6 +61,10 @@ public class _Graph extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        // MESSES
+        for (int i = 1; i <= 12; i ++) {
+            vectorSessionMouth.add(i);
+        }
 
         btnGroupType = new javax.swing.ButtonGroup();
         btnGroupMenu = new javax.swing.ButtonGroup();
@@ -189,7 +196,10 @@ public class _Graph extends javax.swing.JFrame {
 
             
 
-	        
+            //ANOS
+	        for (int i = 2019; i <= 2050; i++) {
+                vectorSessionYear.add(i);
+            }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -583,26 +593,101 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbTime.setText("Date");
 
-        tbSession_cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        tbSession_cbDay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbSession_cbDayActionPerformed(evt);
-            }
-        });
+		tbSession_cbDay = new JComboBox();
+		tbSession_cbDay.setModel(new DefaultComboBoxModel(vectorSessionDays));
+		// tbSession_cbDay.setSelectedIndex(-1);
+		// tbSession_cbDay.setEditable(true);
+		// JTextField text_tbSession_cbDay = (JTextField)tbSession_cbDay.getEditor().getEditorComponent();
+		// text_tbSession_cbDay.setFocusable(true);
+		// text_tbSession_cbDay.setText("");
 
-        tbSession_cbMounth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+		tbSession_cbMounth = new JComboBox();
+		tbSession_cbMounth.addActionListener(new ActionListener() {
 
-        tbSession_cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+			public void actionPerformed(ActionEvent e) throws NullPointerException {
+                int lim = 1;
+                if ((tbSession_cbMounth.getSelectedItem() != null && tbSession_cbYear.getSelectedItem() != null)) {
+                    int mouth = Integer.parseInt(tbSession_cbMounth.getSelectedItem().toString());
+                    int year = Integer.parseInt(tbSession_cbYear.getSelectedItem().toString());
+                    if (mouth == 2) {
+                        if (year % 4 == 0)
+                        lim = 29;
+                        else lim = 28;
+                    } else if (mouth != 2 &&((mouth < 7 == true && mouth % 2 == 0) ||((mouth >= 7 == true && mouth % 2 != 0)))) {
+                        lim = 31;
+                    } else lim = 30; 
+                }
+                vectorSessionDays.clear();
+                for (int i = 1; i <= lim; i++) {
+                    vectorSessionDays.add(i);
+                    
+                }
+                tbSession_cbDay.setSelectedIndex(-1);
+			}
+		});
+		tbSession_cbMounth.setModel(new DefaultComboBoxModel(vectorSessionMouth));
+		tbSession_cbMounth.setSelectedIndex(1);
+		// tbSession_cbMounth.setEditable(true);
+		// JTextField text_tbSession_cbMounth = (JTextField)tbSession_cbMounth.getEditor().getEditorComponent();
+		// text_tbSession_cbMounth.setFocusable(true);
+		// text_tbSession_cbMounth.setText("0");
+		// text_tbSession_cbMounth.addKeyListener(new ComboListener(tbSession_cbMounth,vectorSessionMouth));
 
+        tbSession_cbYear = new JComboBox();
+        tbSession_cbYear.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) throws NullPointerException {
+                int lim = 1;
+                if ((tbSession_cbMounth.getSelectedItem() != null && tbSession_cbYear.getSelectedItem() != null)) {
+                    int mouth = Integer.parseInt(tbSession_cbMounth.getSelectedItem().toString());
+                    int year = Integer.parseInt(tbSession_cbYear.getSelectedItem().toString());
+                    if (mouth == 2) {
+                        if (year % 4 == 0)
+                        lim = 29;
+                        else lim = 28;
+                    } else if (mouth != 2 &&((mouth < 7 == true && mouth % 2 == 0) ||((mouth >= 7 == true && mouth % 2 != 0)))) {
+                        lim = 31;
+                    } else lim = 30; 
+                }
+                vectorSessionDays.clear();
+                for (int i = 1; i <= lim; i++) {
+                    vectorSessionDays.add(i);
+                }
+                tbSession_cbDay.setSelectedIndex(-1);
+			}
+		});
+
+        tbSession_cbYear.setModel(new DefaultComboBoxModel(vectorSessionYear));
+		tbSession_cbYear.setSelectedIndex(1);
+		// tbSession_cbYear.setEditable(true);
+		// JTextField tbSession_cbYear_text = (JTextField)tbSession_cbYear.getEditor().getEditorComponent();
+		// tbSession_cbYear_text.setFocusable(true);
+		// tbSession_cbYear_text.setText("");
+		// tbSession_cbYear_text.addKeyListener(new ComboListener(tbSession_cbYear,vectorSessionYear));
+        
         tbSession_btnConfirm.setText("Confirm");
 
         tbSession_btnClear.setText("Clear");
 
         tbSession_lbtime.setText("Time");
 
-        tbSession_cbHr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        tbSession_cbMin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+		tbSession_cbHr = new JComboBox();
+		tbSession_cbHr.setModel(new DefaultComboBoxModel(vectorSessionHr));
+		tbSession_cbHr.setSelectedIndex(-1);
+		tbSession_cbHr.setEditable(true);
+		JTextField text_tbSession_cbHr = (JTextField)tbSession_cbHr.getEditor().getEditorComponent();
+		text_tbSession_cbHr.setFocusable(true);
+		text_tbSession_cbHr.setText("");
+		text_tbSession_cbHr.addKeyListener(new ComboListener(tbSession_cbHr,vectorSessionHr));
+        
+        tbSession_cbMin = new JComboBox();
+		tbSession_cbMin.setModel(new DefaultComboBoxModel(vectorSessionMin));
+		tbSession_cbMin.setSelectedIndex(-1);
+		tbSession_cbMin.setEditable(true);
+		JTextField text_tbSession_cbMin = (JTextField)tbSession_cbMin.getEditor().getEditorComponent();
+		text_tbSession_cbMin.setFocusable(true);
+		text_tbSession_cbMin.setText("");
+		text_tbSession_cbMin.addKeyListener(new ComboListener(tbSession_cbMin,vectorSessionMin));
 
         javax.swing.GroupLayout pnSessionLayout = new javax.swing.GroupLayout(pnSession);
         pnSession.setLayout(pnSessionLayout);
@@ -887,8 +972,9 @@ public class _Graph extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox8ActionPerformed
 
-    private void tbSession_cbDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
+    private void tbSession_cbMounthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
         // TODO add your handling code here:
+        System.out.println(tbSession_cbMounth.getSelectedItem());
 
     }//GEN-LAST:event_tbSession_cbDayActionPerformed
 
@@ -958,23 +1044,23 @@ public class _Graph extends javax.swing.JFrame {
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
 
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
-            LocalDate date = LocalDate.parse(tbSession_cbYear.getSelectedItem().toString()+"-"+tbSession_cbMounth.getSelectedItem().toString()+"-"+tbSession_cbDay.getSelectedItem().toString());
-            String h, m;
-            if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
-                h = "0"+tbSession_cbHr.getSelectedItem().toString();
-            } else h = tbSession_cbHr.getSelectedItem().toString();
-            if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
-                m = "0"+tbSession_cbHr.getSelectedItem().toString();
-            } else m = tbSession_cbHr.getSelectedItem().toString();
-            
-            LocalTime time = LocalTime.parse(h+":"+m);
-            Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
-            Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
-            Session s = new Session(r,movie,date,time);
-            if (r.addSessio(s)) {
-                vectorSessions.add(s);
-                System.out.println(s.toString());
-            } else System.out.println("Error");
+//            LocalDate date = LocalDate.parse(tbSession_cbYear.getSelectedItem().toString()+"-"+tbSession_cbMounth.getSelectedItem().toString()+"-"+tbSession_cbDay.getSelectedItem().toString());
+//            String h, m;
+//            if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
+//                h = "0"+tbSession_cbHr.getSelectedItem().toString();
+//            } else h = tbSession_cbHr.getSelectedItem().toString();
+//            if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
+//                m = "0"+tbSession_cbHr.getSelectedItem().toString();
+//            } else m = tbSession_cbHr.getSelectedItem().toString();
+//            
+//            LocalTime time = LocalTime.parse(h+":"+m);
+//            Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
+//            Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
+//            Session s = new Session(r,movie,date,time);
+//            if (r.addSessio(s)) {
+//                vectorSessions.add(s);
+//                System.out.println(s.toString());
+//            } else System.out.println("Error");
     }
 
     private Movie getMovieFromVector(String movie, Vector<Movie> vectorMovie) throws NullPointerException {
