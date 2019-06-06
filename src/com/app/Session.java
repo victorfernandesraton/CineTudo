@@ -163,6 +163,6 @@ public class Session implements BuyPass {
 
 	@Override
 	public String toString() {
-		return this.room.getId()+"\t,"+this.start.toString() +"\t" + this.movie.getTitle()+"\t"+this.ocupation;
+		return this.room.getId()+" ,"+this.start.toString() +", " + this.movie.getTitle()+", "+this.ocupation;
 	}
 }

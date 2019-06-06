@@ -89,6 +89,6 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return this.title + "\t,"+this.director+"\t,"+this.category;
+		return this.title + " ,"+this.director+" ,"+this.category;
 	}
 }
