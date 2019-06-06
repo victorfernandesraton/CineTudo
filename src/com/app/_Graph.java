@@ -24,6 +24,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
@@ -127,9 +129,6 @@ public class _Graph extends javax.swing.JFrame {
         tbSession_lbRoom = new javax.swing.JLabel();
         tbSession_cbRoom = new javax.swing.JComboBox<>();
         tbSession_lbMovie = new javax.swing.JLabel();
-        tbSession_lbLotation = new javax.swing.JLabel();
-        tbSession_spLotation = new javax.swing.JSpinner();
-        tbSession_cbDefault = new javax.swing.JCheckBox();
         tbSession_lbTime = new javax.swing.JLabel();
         tbSession_cbDay = new javax.swing.JComboBox<>();
         tbSession_cbMounth = new javax.swing.JComboBox<>();
@@ -582,27 +581,18 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbMovie.setText("Movie");
 
-        tbSession_lbLotation.setText("Lotation");
-
-        tbSession_cbDefault.setText("Default");
-        tbSession_cbDefault.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbSession_cbDefaultActionPerformed(evt);
-            }
-        });
-
         tbSession_lbTime.setText("Date");
 
-		tbSession_cbDay = new JComboBox();
-		tbSession_cbDay.setModel(new DefaultComboBoxModel(vectorSessionDays));
+		tbSession_cbDay_1 = new JComboBox();
+		tbSession_cbDay_1.setModel(new DefaultComboBoxModel(vectorSessionDays));
 		// tbSession_cbDay.setSelectedIndex(-1);
 		// tbSession_cbDay.setEditable(true);
 		// JTextField text_tbSession_cbDay = (JTextField)tbSession_cbDay.getEditor().getEditorComponent();
 		// text_tbSession_cbDay.setFocusable(true);
 		// text_tbSession_cbDay.setText("");
 
-		tbSession_cbMounth = new JComboBox();
-		tbSession_cbMounth.addActionListener(new ActionListener() {
+		tbSession_cbMounth_1 = new JComboBox();
+		tbSession_cbMounth_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) throws NullPointerException {
                 int lim = 1;
@@ -625,16 +615,16 @@ public class _Graph extends javax.swing.JFrame {
                 tbSession_cbDay.setSelectedIndex(-1);
 			}
 		});
-		tbSession_cbMounth.setModel(new DefaultComboBoxModel(vectorSessionMouth));
-		tbSession_cbMounth.setSelectedIndex(1);
+		tbSession_cbMounth_1.setModel(new DefaultComboBoxModel(vectorSessionMouth));
+		tbSession_cbMounth_1.setSelectedIndex(1);
 		// tbSession_cbMounth.setEditable(true);
 		// JTextField text_tbSession_cbMounth = (JTextField)tbSession_cbMounth.getEditor().getEditorComponent();
 		// text_tbSession_cbMounth.setFocusable(true);
 		// text_tbSession_cbMounth.setText("0");
 		// text_tbSession_cbMounth.addKeyListener(new ComboListener(tbSession_cbMounth,vectorSessionMouth));
 
-        tbSession_cbYear = new JComboBox();
-        tbSession_cbYear.addActionListener(new ActionListener() {
+        tbSession_cbYear_1 = new JComboBox();
+        tbSession_cbYear_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) throws NullPointerException {
                 int lim = 1;
@@ -657,8 +647,8 @@ public class _Graph extends javax.swing.JFrame {
 			}
 		});
 
-        tbSession_cbYear.setModel(new DefaultComboBoxModel(vectorSessionYear));
-		tbSession_cbYear.setSelectedIndex(1);
+        tbSession_cbYear_1.setModel(new DefaultComboBoxModel(vectorSessionYear));
+		tbSession_cbYear_1.setSelectedIndex(1);
 		// tbSession_cbYear.setEditable(true);
 		// JTextField tbSession_cbYear_text = (JTextField)tbSession_cbYear.getEditor().getEditorComponent();
 		// tbSession_cbYear_text.setFocusable(true);
@@ -671,18 +661,18 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbtime.setText("Time");
 
-		tbSession_cbHr = new JComboBox();
-		tbSession_cbHr.setModel(new DefaultComboBoxModel(vectorSessionHr));
-		tbSession_cbHr.setSelectedIndex(1);
+		tbSession_cbHr_1 = new JComboBox();
+		tbSession_cbHr_1.setModel(new DefaultComboBoxModel(vectorSessionHr));
+		tbSession_cbHr_1.setSelectedIndex(1);
 		// tbSession_cbHr.setEditable(true);
 		// JTextField text_tbSession_cbHr = (JTextField)tbSession_cbHr.getEditor().getEditorComponent();
 		// text_tbSession_cbHr.setFocusable(true);
 		// text_tbSession_cbHr.setText("");
 		// text_tbSession_cbHr.addKeyListener(new ComboListener(tbSession_cbHr,vectorSessionHr));
         
-        tbSession_cbMin = new JComboBox();
-		tbSession_cbMin.setModel(new DefaultComboBoxModel(vectorSessionMin));
-		tbSession_cbMin.setSelectedIndex(1);
+        tbSession_cbMin_1 = new JComboBox();
+		tbSession_cbMin_1.setModel(new DefaultComboBoxModel(vectorSessionMin));
+		tbSession_cbMin_1.setSelectedIndex(1);
 		// tbSession_cbMin.setEditable(true);
 		// JTextField text_tbSession_cbMin = (JTextField)tbSession_cbMin.getEditor().getEditorComponent();
 		// text_tbSession_cbMin.setFocusable(true);
@@ -690,95 +680,81 @@ public class _Graph extends javax.swing.JFrame {
 		// text_tbSession_cbMin.addKeyListener(new ComboListener(tbSession_cbMin,vectorSessionMin));
 
         javax.swing.GroupLayout pnSessionLayout = new javax.swing.GroupLayout(pnSession);
-        pnSession.setLayout(pnSessionLayout);
         pnSessionLayout.setHorizontalGroup(
-            pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnSessionLayout.createSequentialGroup()
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnSessionLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tbSession_btnClear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tbSession_btnConfirm))
-                    .addGroup(pnSessionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnSessionLayout.createSequentialGroup()
-                                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tbSession_cbRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tbSession_lbMovie)
-                                    .addComponent(tbSession_cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnSessionLayout.createSequentialGroup()
-                                        .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tbSession_lbTime)
-                                            .addComponent(tbSession_lbtime))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(pnSessionLayout.createSequentialGroup()
-                                        .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(tbSession_cbHr, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tbSession_spLotation, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tbSession_cbDay, javax.swing.GroupLayout.Alignment.LEADING, 0, 80, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnSessionLayout.createSequentialGroup()
-                                                .addComponent(tbSession_cbDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(pnSessionLayout.createSequentialGroup()
-                                                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(tbSession_cbMin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(tbSession_cbMounth, 0, 90, Short.MAX_VALUE))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(tbSession_cbYear, 0, 77, Short.MAX_VALUE))))))
-                            .addGroup(pnSessionLayout.createSequentialGroup()
-                                .addComponent(tbSession_lbRoom)
-                                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnSessionLayout.createSequentialGroup()
-                                        .addGap(129, 129, 129)
-                                        .addComponent(tbSession_title))
-                                    .addGroup(pnSessionLayout.createSequentialGroup()
-                                        .addGap(151, 151, 151)
-                                        .addComponent(tbSession_lbLotation)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+        	pnSessionLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(pnSessionLayout.createSequentialGroup()
+        			.addGroup(pnSessionLayout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(pnSessionLayout.createSequentialGroup()
+        					.addGap(0, 481, Short.MAX_VALUE)
+        					.addComponent(tbSession_btnClear)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(tbSession_btnConfirm))
+        				.addGroup(pnSessionLayout.createSequentialGroup()
+        					.addContainerGap()
+        					.addGroup(pnSessionLayout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(tbSession_cbRoom, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_lbMovie)
+        						.addComponent(tbSession_cbMovie, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_lbRoom))
+        					.addGap(18)
+        					.addGroup(pnSessionLayout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(pnSessionLayout.createSequentialGroup()
+        							.addGroup(pnSessionLayout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(pnSessionLayout.createSequentialGroup()
+        									.addGap(129)
+        									.addComponent(tbSession_title))
+        								.addComponent(tbSession_lbTime))
+        							.addPreferredGap(ComponentPlacement.RELATED, 260, Short.MAX_VALUE))
+        						.addGroup(pnSessionLayout.createSequentialGroup()
+        							.addComponent(tbSession_lbtime)
+        							.addGap(1, 403, Short.MAX_VALUE))
+        						.addGroup(pnSessionLayout.createSequentialGroup()
+        							.addGroup(pnSessionLayout.createParallelGroup(Alignment.TRAILING, false)
+        								.addComponent(tbSession_cbHr_1, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        								.addComponent(tbSession_cbDay_1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+        							.addGap(18)
+        							.addGroup(pnSessionLayout.createParallelGroup(Alignment.TRAILING, false)
+        								.addComponent(tbSession_cbMin_1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        								.addComponent(tbSession_cbMounth_1, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
+        							.addGap(18)
+        							.addComponent(tbSession_cbYear_1, 0, 219, Short.MAX_VALUE)))))
+        			.addContainerGap())
         );
         pnSessionLayout.setVerticalGroup(
-            pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnSessionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tbSession_title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbSession_lbLotation)
-                    .addComponent(tbSession_lbRoom))
-                .addGap(7, 7, 7)
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbSession_spLotation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbSession_cbDefault)
-                    .addComponent(tbSession_cbRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbSession_lbTime)
-                    .addComponent(tbSession_lbMovie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbSession_cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbSession_cbMounth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbSession_cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbSession_cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbSession_lbtime)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbSession_cbHr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbSession_cbMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addGroup(pnSessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbSession_btnConfirm)
-                    .addComponent(tbSession_btnClear))
-                .addContainerGap())
+        	pnSessionLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(pnSessionLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(tbSession_title)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbSession_lbRoom)
+        				.addComponent(tbSession_lbTime))
+        			.addGap(7)
+        			.addGroup(pnSessionLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(pnSessionLayout.createSequentialGroup()
+        					.addComponent(tbSession_cbRoom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(tbSession_lbMovie)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(tbSession_cbMovie, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(pnSessionLayout.createSequentialGroup()
+        					.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(tbSession_cbDay_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_cbMounth_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_cbYear_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(tbSession_lbtime)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(tbSession_cbHr_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_cbMin_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+        			.addPreferredGap(ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+        			.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbSession_btnConfirm)
+        				.addComponent(tbSession_btnClear))
+        			.addContainerGap())
         );
+        pnSession.setLayout(pnSessionLayout);
 
         tbPannel.addTab("Session", pnSession);
 
@@ -974,13 +950,9 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbSession_cbMounthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
         // TODO add your handling code here:
-        System.out.println(tbSession_cbMounth.getSelectedItem());
+        System.out.println(tbSession_cbMounth_1.getSelectedItem());
 
     }//GEN-LAST:event_tbSession_cbDayActionPerformed
-
-    private void tbSession_cbDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDefaultActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbSession_cbDefaultActionPerformed
 
     private void tbSession_cbRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbRoomActionPerformed
         // TODO add your handling code here:
@@ -1045,24 +1017,24 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
         String Mounth;
-        String Year = tbSession_cbYear.getSelectedItem().toString();
-        if (tbSession_cbMounth.getSelectedItem().toString().length() <  2 ) 
-            Mounth = "0"+tbSession_cbMounth.getSelectedItem().toString();
-        else Mounth = tbSession_cbMounth.getSelectedItem().toString();
+        String Year = tbSession_cbYear_1.getSelectedItem().toString();
+        if (tbSession_cbMounth_1.getSelectedItem().toString().length() <  2 ) 
+            Mounth = "0"+tbSession_cbMounth_1.getSelectedItem().toString();
+        else Mounth = tbSession_cbMounth_1.getSelectedItem().toString();
         String Day;
-        if (tbSession_cbDay.getSelectedItem().toString().length() <  2 ) 
-            Day = "0"+tbSession_cbDay.getSelectedItem().toString();
-        else Day = tbSession_cbDay.getSelectedItem().toString();
+        if (tbSession_cbDay_1.getSelectedItem().toString().length() <  2 ) 
+            Day = "0"+tbSession_cbDay_1.getSelectedItem().toString();
+        else Day = tbSession_cbDay_1.getSelectedItem().toString();
 
         LocalDate date = LocalDate.parse(Year+"-"+Mounth+"-"+Day);
            System.out.println(date);
            String h, m;
-           if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
-               h = "0"+tbSession_cbHr.getSelectedItem().toString();
-           } else h = tbSession_cbHr.getSelectedItem().toString();
-           if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
-               m = "0"+tbSession_cbHr.getSelectedItem().toString();
-           } else m = tbSession_cbHr.getSelectedItem().toString();
+           if (tbSession_cbHr_1.getSelectedItem().toString().length() < 2) {
+               h = "0"+tbSession_cbHr_1.getSelectedItem().toString();
+           } else h = tbSession_cbHr_1.getSelectedItem().toString();
+           if (tbSession_cbMin_1.getSelectedItem().toString().length() < 2) {
+               m = "0"+tbSession_cbHr_1.getSelectedItem().toString();
+           } else m = tbSession_cbHr_1.getSelectedItem().toString();
            
            System.out.println(h+":"+m);
            LocalTime time = LocalTime.parse(h+":"+m);
@@ -1153,18 +1125,20 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JButton tbSession_btnClear;
     private javax.swing.JButton tbSession_btnConfirm;
     private javax.swing.JComboBox<String> tbSession_cbDay;
-    private javax.swing.JCheckBox tbSession_cbDefault;
+    private JComboBox<String> tbSession_cbDay_1;
     private javax.swing.JComboBox<String> tbSession_cbHr;
+    private JComboBox<String> tbSession_cbHr_1;
     private javax.swing.JComboBox<String> tbSession_cbMin;
+    private JComboBox<String> tbSession_cbMin_1;
     private javax.swing.JComboBox<String> tbSession_cbMounth;
+    private JComboBox<String> tbSession_cbMounth_1;
     private javax.swing.JComboBox<String> tbSession_cbRoom;
     private javax.swing.JComboBox<String> tbSession_cbYear;
-    private javax.swing.JLabel tbSession_lbLotation;
+    private JComboBox<String> tbSession_cbYear_1;
     private javax.swing.JLabel tbSession_lbMovie;
     private javax.swing.JLabel tbSession_lbRoom;
     private javax.swing.JLabel tbSession_lbTime;
     private javax.swing.JLabel tbSession_lbtime;
-    private javax.swing.JSpinner tbSession_spLotation;
     private javax.swing.JLabel tbSession_title;
     private javax.swing.JTextField tbTickect_tfPrice;
     private javax.swing.JCheckBox tbTicket_cbStudy;
