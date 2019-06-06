@@ -673,21 +673,21 @@ public class _Graph extends javax.swing.JFrame {
 
 		tbSession_cbHr = new JComboBox();
 		tbSession_cbHr.setModel(new DefaultComboBoxModel(vectorSessionHr));
-		tbSession_cbHr.setSelectedIndex(-1);
-		tbSession_cbHr.setEditable(true);
-		JTextField text_tbSession_cbHr = (JTextField)tbSession_cbHr.getEditor().getEditorComponent();
-		text_tbSession_cbHr.setFocusable(true);
-		text_tbSession_cbHr.setText("");
-		text_tbSession_cbHr.addKeyListener(new ComboListener(tbSession_cbHr,vectorSessionHr));
+		tbSession_cbHr.setSelectedIndex(1);
+		// tbSession_cbHr.setEditable(true);
+		// JTextField text_tbSession_cbHr = (JTextField)tbSession_cbHr.getEditor().getEditorComponent();
+		// text_tbSession_cbHr.setFocusable(true);
+		// text_tbSession_cbHr.setText("");
+		// text_tbSession_cbHr.addKeyListener(new ComboListener(tbSession_cbHr,vectorSessionHr));
         
         tbSession_cbMin = new JComboBox();
 		tbSession_cbMin.setModel(new DefaultComboBoxModel(vectorSessionMin));
-		tbSession_cbMin.setSelectedIndex(-1);
-		tbSession_cbMin.setEditable(true);
-		JTextField text_tbSession_cbMin = (JTextField)tbSession_cbMin.getEditor().getEditorComponent();
-		text_tbSession_cbMin.setFocusable(true);
-		text_tbSession_cbMin.setText("");
-		text_tbSession_cbMin.addKeyListener(new ComboListener(tbSession_cbMin,vectorSessionMin));
+		tbSession_cbMin.setSelectedIndex(1);
+		// tbSession_cbMin.setEditable(true);
+		// JTextField text_tbSession_cbMin = (JTextField)tbSession_cbMin.getEditor().getEditorComponent();
+		// text_tbSession_cbMin.setFocusable(true);
+		// text_tbSession_cbMin.setText("");
+		// text_tbSession_cbMin.addKeyListener(new ComboListener(tbSession_cbMin,vectorSessionMin));
 
         javax.swing.GroupLayout pnSessionLayout = new javax.swing.GroupLayout(pnSession);
         pnSession.setLayout(pnSessionLayout);
@@ -1044,23 +1044,35 @@ public class _Graph extends javax.swing.JFrame {
     }//GEN-LAST:event_tbMovie_tfTitleActionPerformed
 
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
-//            LocalDate date = LocalDate.parse(tbSession_cbYear.getSelectedItem().toString()+"-"+tbSession_cbMounth.getSelectedItem().toString()+"-"+tbSession_cbDay.getSelectedItem().toString());
-//            String h, m;
-//            if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
-//                h = "0"+tbSession_cbHr.getSelectedItem().toString();
-//            } else h = tbSession_cbHr.getSelectedItem().toString();
-//            if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
-//                m = "0"+tbSession_cbHr.getSelectedItem().toString();
-//            } else m = tbSession_cbHr.getSelectedItem().toString();
-//            
-//            LocalTime time = LocalTime.parse(h+":"+m);
-//            Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
-//            Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
-//            Session s = new Session(r,movie,date,time);
-//            if (r.addSessio(s)) {
-//                vectorSessions.add(s);
-//                System.out.println(s.toString());
-//            } else System.out.println("Error");
+        String Mounth;
+        String Year = tbSession_cbYear.getSelectedItem().toString();
+        if (tbSession_cbMounth.getSelectedItem().toString().length() <  2 ) 
+            Mounth = "0"+tbSession_cbMounth.getSelectedItem().toString();
+        else Mounth = tbSession_cbMounth.getSelectedItem().toString();
+        String Day;
+        if (tbSession_cbDay.getSelectedItem().toString().length() <  2 ) 
+            Day = "0"+tbSession_cbDay.getSelectedItem().toString();
+        else Day = tbSession_cbDay.getSelectedItem().toString();
+
+        LocalDate date = LocalDate.parse(Year+"-"+Mounth+"-"+Day);
+           System.out.println(date);
+           String h, m;
+           if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
+               h = "0"+tbSession_cbHr.getSelectedItem().toString();
+           } else h = tbSession_cbHr.getSelectedItem().toString();
+           if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
+               m = "0"+tbSession_cbHr.getSelectedItem().toString();
+           } else m = tbSession_cbHr.getSelectedItem().toString();
+           
+           System.out.println(h+":"+m);
+           LocalTime time = LocalTime.parse(h+":"+m);
+           Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
+           Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
+           Session s = new Session(r,movie,date,time);
+           if (r.addSessio(s)) {
+               vectorSessions.add(s);
+               System.out.println(s.toString());
+           } else System.out.println("Error");
     }
 
     private Movie getMovieFromVector(String movie, Vector<Movie> vectorMovie) throws NullPointerException {
