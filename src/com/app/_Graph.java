@@ -36,6 +36,7 @@ public class _Graph extends javax.swing.JFrame {
     public ArrayList<Movie> movies = new ArrayList<Movie>();
     public Vector<Movie> vectorMovies = new Vector<Movie>();
     public Vector<Room> vectorRooms = new Vector<Room>();    
+    public Vector<Room> vectorTicketRooms = new Vector<Room>();    
     public Vector<Session> vectorSessions = new Vector<Session>();
     public Vector<String> vectorCategory = new Vector<String>();
     public Vector<String> vectorClassification = new Vector<String>();
@@ -44,6 +45,7 @@ public class _Graph extends javax.swing.JFrame {
     public Vector<Integer> vectorSessionDays = new Vector<Integer>();
     public Vector<Integer> vectorSessionMouth = new Vector<Integer>();
     public Vector<Integer> vectorSessionYear = new Vector<Integer>();
+    
     
    
 
@@ -151,8 +153,8 @@ public class _Graph extends javax.swing.JFrame {
         tbSession_cbMin = new javax.swing.JComboBox<>();
         pnTicket = new javax.swing.JPanel();
         tbTicket_title = new javax.swing.JLabel();
-        tbTicket_lbSession = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        tbTicket_lbMovie = new javax.swing.JLabel();
+        tbTicket_cbMovie = new javax.swing.JComboBox<>();
         tbTicket_lbName = new javax.swing.JLabel();
         tbTicket_tfName = new javax.swing.JTextField();
         tbTicket_lbAge = new javax.swing.JLabel();
@@ -588,16 +590,16 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbTime.setText("Date");
 
-		tbSession_cbDay_1 = new JComboBox();
-		tbSession_cbDay_1.setModel(new DefaultComboBoxModel(vectorSessionDays));
+		tbSession_cbDay = new JComboBox();
+		tbSession_cbDay.setModel(new DefaultComboBoxModel(vectorSessionDays));
 		// tbSession_cbDay.setSelectedIndex(-1);
 		// tbSession_cbDay.setEditable(true);
 		// JTextField text_tbSession_cbDay = (JTextField)tbSession_cbDay.getEditor().getEditorComponent();
 		// text_tbSession_cbDay.setFocusable(true);
 		// text_tbSession_cbDay.setText("");
 
-		tbSession_cbMounth_1 = new JComboBox();
-		tbSession_cbMounth_1.addActionListener(new ActionListener() {
+		tbSession_cbMounth = new JComboBox();
+		tbSession_cbMounth.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) throws NullPointerException {
                 int lim = 1;
@@ -617,24 +619,24 @@ public class _Graph extends javax.swing.JFrame {
                     vectorSessionDays.add(i);
                     
                 }
-                tbSession_cbDay.setSelectedIndex(-1);
 			}
 		});
-		tbSession_cbMounth_1.setModel(new DefaultComboBoxModel(vectorSessionMouth));
-		tbSession_cbMounth_1.setSelectedIndex(1);
+		tbSession_cbMounth.setModel(new DefaultComboBoxModel(vectorSessionMouth));
+		tbSession_cbMounth.setSelectedIndex(1);
 		// tbSession_cbMounth.setEditable(true);
 		// JTextField text_tbSession_cbMounth = (JTextField)tbSession_cbMounth.getEditor().getEditorComponent();
 		// text_tbSession_cbMounth.setFocusable(true);
 		// text_tbSession_cbMounth.setText("0");
 		// text_tbSession_cbMounth.addKeyListener(new ComboListener(tbSession_cbMounth,vectorSessionMouth));
 
-        tbSession_cbYear_1 = new JComboBox();
-        tbSession_cbYear_1.addActionListener(new ActionListener() {
+        tbSession_cbYear = new JComboBox();
+        tbSession_cbYear.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) throws NullPointerException {
                 int lim = 1;
                 if ((tbSession_cbMounth.getSelectedItem() != null && tbSession_cbYear.getSelectedItem() != null)) {
                     int mouth = Integer.parseInt(tbSession_cbMounth.getSelectedItem().toString());
+                    System.out.println(mouth);
                     int year = Integer.parseInt(tbSession_cbYear.getSelectedItem().toString());
                     if (mouth == 2) {
                         if (year % 4 == 0)
@@ -648,12 +650,11 @@ public class _Graph extends javax.swing.JFrame {
                 for (int i = 1; i <= lim; i++) {
                     vectorSessionDays.add(i);
                 }
-                tbSession_cbDay.setSelectedIndex(-1);
 			}
 		});
 
-        tbSession_cbYear_1.setModel(new DefaultComboBoxModel(vectorSessionYear));
-		tbSession_cbYear_1.setSelectedIndex(1);
+        tbSession_cbYear.setModel(new DefaultComboBoxModel(vectorSessionYear));
+		tbSession_cbYear.setSelectedIndex(1);
 		// tbSession_cbYear.setEditable(true);
 		// JTextField tbSession_cbYear_text = (JTextField)tbSession_cbYear.getEditor().getEditorComponent();
 		// tbSession_cbYear_text.setFocusable(true);
@@ -666,18 +667,18 @@ public class _Graph extends javax.swing.JFrame {
 
         tbSession_lbtime.setText("Time");
 
-		tbSession_cbHr_1 = new JComboBox();
-		tbSession_cbHr_1.setModel(new DefaultComboBoxModel(vectorSessionHr));
-		tbSession_cbHr_1.setSelectedIndex(1);
+		tbSession_cbHr = new JComboBox();
+		tbSession_cbHr.setModel(new DefaultComboBoxModel(vectorSessionHr));
+		tbSession_cbHr.setSelectedIndex(1);
 		// tbSession_cbHr.setEditable(true);
 		// JTextField text_tbSession_cbHr = (JTextField)tbSession_cbHr.getEditor().getEditorComponent();
 		// text_tbSession_cbHr.setFocusable(true);
 		// text_tbSession_cbHr.setText("");
 		// text_tbSession_cbHr.addKeyListener(new ComboListener(tbSession_cbHr,vectorSessionHr));
         
-        tbSession_cbMin_1 = new JComboBox();
-		tbSession_cbMin_1.setModel(new DefaultComboBoxModel(vectorSessionMin));
-		tbSession_cbMin_1.setSelectedIndex(1);
+        tbSession_cbMin = new JComboBox();
+		tbSession_cbMin.setModel(new DefaultComboBoxModel(vectorSessionMin));
+		tbSession_cbMin.setSelectedIndex(1);
 		// tbSession_cbMin.setEditable(true);
 		// JTextField text_tbSession_cbMin = (JTextField)tbSession_cbMin.getEditor().getEditorComponent();
 		// text_tbSession_cbMin.setFocusable(true);
@@ -715,14 +716,14 @@ public class _Graph extends javax.swing.JFrame {
         							.addGap(1, 403, Short.MAX_VALUE))
         						.addGroup(pnSessionLayout.createSequentialGroup()
         							.addGroup(pnSessionLayout.createParallelGroup(Alignment.TRAILING, false)
-        								.addComponent(tbSession_cbHr_1, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        								.addComponent(tbSession_cbDay_1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+        								.addComponent(tbSession_cbHr, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        								.addComponent(tbSession_cbDay, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
         							.addGap(18)
         							.addGroup(pnSessionLayout.createParallelGroup(Alignment.TRAILING, false)
-        								.addComponent(tbSession_cbMin_1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        								.addComponent(tbSession_cbMounth_1, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
+        								.addComponent(tbSession_cbMin, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        								.addComponent(tbSession_cbMounth, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
         							.addGap(18)
-        							.addComponent(tbSession_cbYear_1, 0, 219, Short.MAX_VALUE)))))
+        							.addComponent(tbSession_cbYear, 0, 219, Short.MAX_VALUE)))))
         			.addContainerGap())
         );
         pnSessionLayout.setVerticalGroup(
@@ -744,15 +745,15 @@ public class _Graph extends javax.swing.JFrame {
         					.addComponent(tbSession_cbMovie, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         				.addGroup(pnSessionLayout.createSequentialGroup()
         					.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(tbSession_cbDay_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(tbSession_cbMounth_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(tbSession_cbYear_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        						.addComponent(tbSession_cbDay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_cbMounth, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_cbYear, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(tbSession_lbtime)
         					.addPreferredGap(ComponentPlacement.UNRELATED)
         					.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(tbSession_cbHr_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(tbSession_cbMin_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+        						.addComponent(tbSession_cbHr, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(tbSession_cbMin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
         			.addPreferredGap(ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
         			.addGroup(pnSessionLayout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(tbSession_btnConfirm)
@@ -765,12 +766,33 @@ public class _Graph extends javax.swing.JFrame {
 
         tbTicket_title.setText("BuyPass");
 
-        tbTicket_lbSession.setText("Session");
+        tbTicket_lbMovie.setText("Movie");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox8ActionPerformed(evt);
+
+        tbTicket_cbMovie = new JComboBox();
+		tbTicket_cbMovie.setModel(new DefaultComboBoxModel(vectorMovies));
+		tbTicket_cbMovie.setSelectedIndex(-1);
+		tbTicket_cbMovie.setEditable(true);
+		JTextField text_tbTicket_cbMovie = (JTextField)tbTicket_cbMovie.getEditor().getEditorComponent();
+		text_tbTicket_cbMovie.setFocusable(true);
+		text_tbTicket_cbMovie.setText("");
+		text_tbTicket_cbMovie.addKeyListener(new ComboListener(tbTicket_cbMovie,vectorMovies));
+        tbTicket_cbMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	tbTicket_cbRoom.setSelectedIndex(-1);
+            	vectorTicketRooms.clear();
+        		if (tbTicket_cbMovie.getSelectedItem() != null) {
+					System.out.print("ok 1");
+        			for (Room r : vectorRooms) {
+        				System.out.print(r);
+        				for (Session s : r.getSessionList()) {
+        					if (s.getMovie().toString().equals(tbTicket_cbMovie.getSelectedItem().toString())) {
+        						System.out.print("ok");
+        						vectorTicketRooms.add(s.getRoom());
+        					}
+        				}
+        			}
+        		}
             }
         });
 
@@ -804,88 +826,103 @@ public class _Graph extends javax.swing.JFrame {
                 tbTickect_tfPriceActionPerformed(evt);
             }
         });
+        
+        JLabel tbTicket_lbRoom = new JLabel("Room");
+        
+        tbTicket_cbRoom = new JComboBox();
+		tbTicket_cbRoom.setModel(new DefaultComboBoxModel(vectorTicketRooms));
+		tbTicket_cbRoom.setSelectedIndex(-1);
+        tbTicket_cbRoom.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	
+        	}
+        });
 
         javax.swing.GroupLayout pnTicketLayout = new javax.swing.GroupLayout(pnTicket);
-        pnTicket.setLayout(pnTicketLayout);
         pnTicketLayout.setHorizontalGroup(
-            pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTicketLayout.createSequentialGroup()
-                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnTicketLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnClear))
-                    .addGroup(pnTicketLayout.createSequentialGroup()
-                        .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tbTicket_tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addGap(188, 188, 188)
-                                    .addComponent(tbTicket_title))
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(tbTicket_lbSession))
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(tbTicket_lbName))
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(tbTicket_lbAge))
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(tbTicket_spAge, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tbTicket_cbStudy))
-                                .addGroup(pnTicketLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tbTicket_lbCpf)
-                                        .addComponent(tbTicket_tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnTicketLayout.createSequentialGroup()
-                                .addComponent(tbTicket_lbPrice)
-                                .addGap(0, 56, Short.MAX_VALUE))
-                            .addComponent(tbTickect_tfPrice))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfirm)
-                .addContainerGap())
+        	pnTicketLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(pnTicketLayout.createSequentialGroup()
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(pnTicketLayout.createSequentialGroup()
+        					.addGap(0, 471, Short.MAX_VALUE)
+        					.addComponent(btnClear))
+        				.addGroup(pnTicketLayout.createSequentialGroup()
+        					.addGroup(pnTicketLayout.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(tbTicket_tfName, GroupLayout.PREFERRED_SIZE, 265, GroupLayout.PREFERRED_SIZE)
+        						.addGroup(pnTicketLayout.createParallelGroup(Alignment.LEADING)
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addGap(188)
+        								.addComponent(tbTicket_title))
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addContainerGap()
+        								.addComponent(tbTicket_lbMovie))
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addContainerGap()
+        								.addComponent(tbTicket_lbName))
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addContainerGap()
+        								.addComponent(tbTicket_cbMovie, GroupLayout.PREFERRED_SIZE, 265, GroupLayout.PREFERRED_SIZE))
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addContainerGap()
+        								.addComponent(tbTicket_lbAge))
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addContainerGap()
+        								.addComponent(tbTicket_spAge, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+        								.addGap(18)
+        								.addComponent(tbTicket_cbStudy))
+        							.addGroup(pnTicketLayout.createSequentialGroup()
+        								.addContainerGap()
+        								.addGroup(pnTicketLayout.createParallelGroup(Alignment.LEADING)
+        									.addComponent(tbTicket_lbCpf)
+        									.addComponent(tbTicket_tfCpf, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)))))
+        					.addGap(18)
+        					.addGroup(pnTicketLayout.createParallelGroup(Alignment.LEADING, false)
+        						.addComponent(tbTicket_lbRoom)
+        						.addComponent(tbTicket_lbPrice)
+        						.addComponent(tbTickect_tfPrice, 235, 235, Short.MAX_VALUE)
+        						.addComponent(tbTicket_cbRoom, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(btnConfirm)
+        			.addContainerGap())
         );
         pnTicketLayout.setVerticalGroup(
-            pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTicketLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tbTicket_title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbTicket_lbSession)
-                    .addComponent(tbTicket_lbPrice))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbTickect_tfPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbTicket_lbName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbTicket_tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbTicket_lbAge)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbTicket_spAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbTicket_cbStudy))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tbTicket_lbCpf)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbTicket_tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(pnTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirm)
-                    .addComponent(btnClear))
-                .addContainerGap())
+        	pnTicketLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(pnTicketLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(tbTicket_title)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbTicket_lbMovie)
+        				.addComponent(tbTicket_lbRoom))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbTicket_cbMovie, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(tbTicket_cbRoom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbTicket_lbName)
+        				.addComponent(tbTicket_lbPrice))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbTicket_tfName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(tbTickect_tfPrice, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(tbTicket_lbAge)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(tbTicket_spAge, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(tbTicket_cbStudy))
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(tbTicket_lbCpf)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(tbTicket_tfCpf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+        			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(btnConfirm)
+        				.addComponent(btnClear))
+        			.addContainerGap())
         );
+        pnTicket.setLayout(pnTicketLayout);
 
         tbPannel.addTab("Ticket", pnTicket);
 
@@ -951,11 +988,12 @@ public class _Graph extends javax.swing.JFrame {
 
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
         // TODO add your handling code here:
+    	
     }//GEN-LAST:event_jComboBox8ActionPerformed
 
     private void tbSession_cbMounthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
         // TODO add your handling code here:
-        System.out.println(tbSession_cbMounth_1.getSelectedItem());
+        System.out.println(tbSession_cbMounth.getSelectedItem());
 
     }//GEN-LAST:event_tbSession_cbDayActionPerformed
 
@@ -1022,24 +1060,24 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
         String Mounth;
-        String Year = tbSession_cbYear_1.getSelectedItem().toString();
-        if (tbSession_cbMounth_1.getSelectedItem().toString().length() <  2 ) 
-            Mounth = "0"+tbSession_cbMounth_1.getSelectedItem().toString();
-        else Mounth = tbSession_cbMounth_1.getSelectedItem().toString();
+        String Year = tbSession_cbYear.getSelectedItem().toString();
+        if (tbSession_cbMounth.getSelectedItem().toString().length() <  2 ) 
+            Mounth = "0"+tbSession_cbMounth.getSelectedItem().toString();
+        else Mounth = tbSession_cbMounth.getSelectedItem().toString();
         String Day;
-        if (tbSession_cbDay_1.getSelectedItem().toString().length() <  2 ) 
-            Day = "0"+tbSession_cbDay_1.getSelectedItem().toString();
-        else Day = tbSession_cbDay_1.getSelectedItem().toString();
+        if (tbSession_cbDay.getSelectedItem().toString().length() <  2 ) 
+            Day = "0"+tbSession_cbDay.getSelectedItem().toString();
+        else Day = tbSession_cbDay.getSelectedItem().toString();
 
         LocalDate date = LocalDate.parse(Year+"-"+Mounth+"-"+Day);
            System.out.println(date);
            String h, m;
-           if (tbSession_cbHr_1.getSelectedItem().toString().length() < 2) {
-               h = "0"+tbSession_cbHr_1.getSelectedItem().toString();
-           } else h = tbSession_cbHr_1.getSelectedItem().toString();
-           if (tbSession_cbMin_1.getSelectedItem().toString().length() < 2) {
-               m = "0"+tbSession_cbHr_1.getSelectedItem().toString();
-           } else m = tbSession_cbHr_1.getSelectedItem().toString();
+           if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
+               h = "0"+tbSession_cbHr.getSelectedItem().toString();
+           } else h = tbSession_cbHr.getSelectedItem().toString();
+           if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
+               m = "0"+tbSession_cbHr.getSelectedItem().toString();
+           } else m = tbSession_cbHr.getSelectedItem().toString();
            
            System.out.println(h+":"+m);
            LocalTime time = LocalTime.parse(h+":"+m);
@@ -1087,7 +1125,7 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JButton btnSession;
     private javax.swing.JButton btnTicket;
     private javax.swing.JPanel btnTypeContent;
-    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> tbTicket_cbMovie;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1133,16 +1171,11 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JButton tbSession_btnClear;
     private javax.swing.JButton tbSession_btnConfirm;
     private javax.swing.JComboBox<String> tbSession_cbDay;
-    private JComboBox<String> tbSession_cbDay_1;
     private javax.swing.JComboBox<String> tbSession_cbHr;
-    private JComboBox<String> tbSession_cbHr_1;
     private javax.swing.JComboBox<String> tbSession_cbMin;
-    private JComboBox<String> tbSession_cbMin_1;
     private javax.swing.JComboBox<String> tbSession_cbMounth;
-    private JComboBox<String> tbSession_cbMounth_1;
     private javax.swing.JComboBox<Room> tbSession_cbRoom;
     private javax.swing.JComboBox<String> tbSession_cbYear;
-    private JComboBox<String> tbSession_cbYear_1;
     private javax.swing.JLabel tbSession_lbMovie;
     private javax.swing.JLabel tbSession_lbRoom;
     private javax.swing.JLabel tbSession_lbTime;
@@ -1153,11 +1186,11 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JLabel tbTicket_lbAge;
     private javax.swing.JLabel tbTicket_lbCpf;
     private javax.swing.JLabel tbTicket_lbName;
+    private javax.swing.JComboBox<Room> tbTicket_cbRoom;
     private javax.swing.JLabel tbTicket_lbPrice;
-    private javax.swing.JLabel tbTicket_lbSession;
+    private javax.swing.JLabel tbTicket_lbMovie;
     private javax.swing.JSpinner tbTicket_spAge;
     private javax.swing.JTextField tbTicket_tfCpf;
     private javax.swing.JTextField tbTicket_tfName;
     private javax.swing.JLabel tbTicket_title;
-    // End of variables declaration//GEN-END:variables
 }

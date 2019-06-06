@@ -103,6 +103,9 @@ public abstract class Room {
         return null;
     }
     
+    public ArrayList<Session> getSessionList() {
+    	return listSession;
+    }
 	@Override
 	public String toString() {
 		return this.id + " ," + this.capacity+", "+this.getType();
