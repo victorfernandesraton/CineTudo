@@ -63,6 +63,11 @@ public class _Graph extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        Room room = new Room3d("1212",2);
+		Movie movie =  new Movie(LocalTime.parse("02:30"),"Avangers: Ultimato","Tarantino","terror","Thanos is die and batmam kill all heroes of planet because her is unique hero ever exist");
+        Session session = new Session(room,movie,LocalDate.parse("2019-04-12"),LocalTime.parse("14:30:00"));
+        vectorMovies.add(movie);
+        vectorRooms.add(room);
         // MESSES
         for (int i = 1; i <= 12; i ++) {
             vectorSessionMouth.add(i);
@@ -1040,6 +1045,8 @@ public class _Graph extends javax.swing.JFrame {
            LocalTime time = LocalTime.parse(h+":"+m);
            Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
            Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
+           System.out.println(r);
+           System.out.println(movie.getClass());
            Session s = new Session(r,movie,date,time);
            if (r.addSessio(s)) {
                vectorSessions.add(s);
@@ -1056,9 +1063,10 @@ public class _Graph extends javax.swing.JFrame {
         return null;
     }
 
-    private Room getRoomFromVector(String room, Vector<Room> vectorRoom) throws NullPointerException {
-        for (Room r : vectorRoom) {
+    private Room getRoomFromVector(String room, Vector<Room> vectorRooms) throws NullPointerException {
+        for (Room r : vectorRooms) {
             if (r.toString().equals(room)) {
+                // System.out.println("JAKATA");
                 return r;
             }
         }
@@ -1132,7 +1140,7 @@ public class _Graph extends javax.swing.JFrame {
     private JComboBox<String> tbSession_cbMin_1;
     private javax.swing.JComboBox<String> tbSession_cbMounth;
     private JComboBox<String> tbSession_cbMounth_1;
-    private javax.swing.JComboBox<String> tbSession_cbRoom;
+    private javax.swing.JComboBox<Room> tbSession_cbRoom;
     private javax.swing.JComboBox<String> tbSession_cbYear;
     private JComboBox<String> tbSession_cbYear_1;
     private javax.swing.JLabel tbSession_lbMovie;

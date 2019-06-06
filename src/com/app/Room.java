@@ -105,6 +105,6 @@ public abstract class Room {
     
 	@Override
 	public String toString() {
-		return this.id + "\t," + this.capacity;
+		return this.id + "\t," + this.capacity+"\t"+this.getType();
 	}
 }
