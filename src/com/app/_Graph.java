@@ -37,6 +37,8 @@ public class _Graph extends javax.swing.JFrame {
     public Vector<Session> vectorSessions = new Vector<Session>();
     public Vector<String> vectorCategory = new Vector<String>();
     public Vector<String> vectorClassification = new Vector<String>();
+    public Vector<String> vectorSessionHr = new Vector<String>();
+    public Vector<String> vectorSessionMin = new Vector<String>();
     
    
 
@@ -170,7 +172,23 @@ public class _Graph extends javax.swing.JFrame {
 	        vectorClassification.add("10 anos");
 	        vectorClassification.add("12 anos");
 	        vectorClassification.add("16 anos");
-	        vectorClassification.add("18 anos");
+            vectorClassification.add("18 anos");
+            
+            // HORAS
+            vectorSessionHr.add("10");
+            vectorSessionHr.add("14");
+            vectorSessionHr.add("16");
+            vectorSessionHr.add("18");
+            vectorSessionHr.add("20");
+            vectorSessionHr.add("22");
+            
+            // MINUTOS
+            vectorSessionMin.add("00");
+            vectorSessionMin.add("20");
+            vectorSessionMin.add("40");
+
+            
+
 	        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -942,22 +960,21 @@ public class _Graph extends javax.swing.JFrame {
     private void tbSession_btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {
             LocalDate date = LocalDate.parse(tbSession_cbYear.getSelectedItem().toString()+"-"+tbSession_cbMounth.getSelectedItem().toString()+"-"+tbSession_cbDay.getSelectedItem().toString());
             String h, m;
-            
             if (tbSession_cbHr.getSelectedItem().toString().length() < 2) {
                 h = "0"+tbSession_cbHr.getSelectedItem().toString();
             } else h = tbSession_cbHr.getSelectedItem().toString();
-
             if (tbSession_cbMin.getSelectedItem().toString().length() < 2) {
                 m = "0"+tbSession_cbHr.getSelectedItem().toString();
             } else m = tbSession_cbHr.getSelectedItem().toString();
-
+            
             LocalTime time = LocalTime.parse(h+":"+m);
             Movie movie = getMovieFromVector(tbSession_cbMovie.getSelectedItem().toString(),  vectorMovies);
             Room r = getRoomFromVector(tbSession_cbRoom.getSelectedItem().toString(), vectorRooms);
             Session s = new Session(r,movie,date,time);
-            vectorSessions.add(s);
-            System.out.println(s.toString());
-            
+            if (r.addSessio(s)) {
+                vectorSessions.add(s);
+                System.out.println(s.toString());
+            } else System.out.println("Error");
     }
 
     private Movie getMovieFromVector(String movie, Vector<Movie> vectorMovie) throws NullPointerException {
