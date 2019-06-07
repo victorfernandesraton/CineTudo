@@ -28,6 +28,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -139,6 +141,8 @@ public class _Graph extends javax.swing.JFrame {
         tbRoom_lbOcupation = new javax.swing.JLabel();
         tbRoom_spOcupation = new javax.swing.JSpinner();
         tbRoom_spPrice = new javax.swing.JSpinner();
+        tbRoom_spPrice.setEnabled(false);
+        tbRoom_spPrice.setModel(new SpinnerNumberModel(new Double(30), null, null, new Double(1)));
         tbRoom_lbPrice = new javax.swing.JLabel();
         tbRoom_cbDefault = new javax.swing.JCheckBox();
         btnTypeContent = new javax.swing.JPanel();
@@ -213,8 +217,6 @@ public class _Graph extends javax.swing.JFrame {
         		tbTicket_btnConfirmActionPerformed(e);
         	}
         });
-        tbTicket_tfCpf = new javax.swing.JTextField();
-        tbTicket_lbCpf = new javax.swing.JLabel();
         tbTicket_lbPrice = new javax.swing.JLabel();
         tbTickect_tfPrice = new javax.swing.JTextField();
         tbTickect_tfPrice.setEnabled(false);
@@ -499,6 +501,7 @@ public class _Graph extends javax.swing.JFrame {
         tbRoom_lbPrice.setText("Price U$");
 
         tbRoom_cbDefault.setText("Default");
+        tbRoom_cbDefault.setSelected(true);
 
         btnTypeContent.setPreferredSize(new java.awt.Dimension(190, 100));
 
@@ -510,6 +513,7 @@ public class _Graph extends javax.swing.JFrame {
         });
 
         tbRoom_rd3D.setText("3D");
+        tbRoom_rd3D.setSelected(true);
 
         javax.swing.GroupLayout btnTypeContentLayout = new javax.swing.GroupLayout(btnTypeContent);
         btnTypeContent.setLayout(btnTypeContentLayout);
@@ -868,8 +872,6 @@ public class _Graph extends javax.swing.JFrame {
 
         tbTicket_btnClear.setText("Clear");
 
-        tbTicket_lbCpf.setText("CPF");
-
         tbTicket_lbPrice.setText("Price (U$)");
 
         tbTickect_tfPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -932,12 +934,7 @@ public class _Graph extends javax.swing.JFrame {
         								.addContainerGap()
         								.addComponent(tbTicket_spAge, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
         								.addGap(18)
-        								.addComponent(tbTicket_cbStudy))
-        							.addGroup(pnTicketLayout.createSequentialGroup()
-        								.addContainerGap()
-        								.addGroup(pnTicketLayout.createParallelGroup(Alignment.LEADING)
-        									.addComponent(tbTicket_lbCpf)
-        									.addComponent(tbTicket_tfCpf, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)))))
+        								.addComponent(tbTicket_cbStudy))))
         					.addGap(18)
         					.addGroup(pnTicketLayout.createParallelGroup(Alignment.LEADING)
         						.addComponent(tbTicket_lbSession)
@@ -980,11 +977,7 @@ public class _Graph extends javax.swing.JFrame {
         				.addComponent(tbTicket_spAge, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         				.addComponent(tbTicket_cbStudy)
         				.addComponent(tbTickect_tfPrice, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addComponent(tbTicket_lbCpf)
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(tbTicket_tfCpf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
         			.addGroup(pnTicketLayout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(tbTicket_btnConfirm)
         				.addComponent(tbTicket_btnClear))
@@ -1199,10 +1192,22 @@ public class _Graph extends javax.swing.JFrame {
     }
     
     private void tbTicket_btnConfirmActionPerformed(java.awt.event.ActionEvent e) {
-//    	if (tbTicket_cbMovie.getSelectedItem() != null && tbTicket_cbRoom.getSelectedItem() != null && tbTi) {
-//    		User user = new User(tbTicket_tfName.getText(), Integer.parseInt(tbTicket_spAge.getValue().toString()));
-//    		
-//    	}
+    	boolean isStudy;
+    	if (tbTicket_cbStudy.isSelected()) {
+    		isStudy = true;
+    	} else isStudy = false;
+    	if (tbTicket_cbMovie.getSelectedItem() != null && tbTicket_cbRoom.getSelectedItem() != null && tbTicket_cbSession.getSelectedItem() != null) {
+    		User user = new User(tbTicket_tfName.getText(), Integer.parseInt(tbTicket_spAge.getValue().toString()),isStudy);
+    		for (Room r : vectorRooms) {
+				if (r.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
+					for (Session s : r.listSession) {
+						if (s.toString().equals(tbTicket_cbSession.getSelectedItem().toString())) {
+							s.buyTickets(user);
+						}
+					}
+				}
+			}
+    	}
     }
     
 	private void tbTicket_cbSessionPerformed(java.awt.event.ActionEvent e) {
@@ -1302,14 +1307,12 @@ public class _Graph extends javax.swing.JFrame {
     private javax.swing.JTextField tbTickect_tfPrice;
     private javax.swing.JCheckBox tbTicket_cbStudy;
     private javax.swing.JLabel tbTicket_lbAge;
-    private javax.swing.JLabel tbTicket_lbCpf;
     private javax.swing.JLabel tbTicket_lbName;
     private javax.swing.JComboBox<Room> tbTicket_cbRoom;
     private javax.swing.JComboBox<Session> tbTicket_cbSession;
     private javax.swing.JLabel tbTicket_lbPrice;
     private javax.swing.JLabel tbTicket_lbMovie;
     private javax.swing.JSpinner tbTicket_spAge;
-    private javax.swing.JTextField tbTicket_tfCpf;
     private javax.swing.JTextField tbTicket_tfName;
     private javax.swing.JLabel tbTicket_title;
     private javax.swing.JButton tbTicket_btnClear;
