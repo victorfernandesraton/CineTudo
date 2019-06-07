@@ -19,6 +19,7 @@
 package com.app;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Locale.Category;
 import java.util.Vector;
 import javax.swing.*;
 import java.awt.*;
@@ -1133,7 +1134,32 @@ public class _Graph extends javax.swing.JFrame {
     	m= "0"+tbMovie_spDurationMin.getValue().toString();
     	else m = tbMovie_spDurationMin.getValue().toString();
     	
-    	Movie movie = new Movie(LocalTime.parse(h+":"+m),tbMovie_tfTitle.getText(),tbMovie_tfDirector.getText(),tbMovie_cbCategory.getSelectedItem().toString(),tbMovie_taDescription.getText());
+    	int category = 0;
+    	
+    	switch (tbMovie_cbClassification.getSelectedIndex()) {
+		case 0:
+			category = 0;
+			break;
+
+		case 1:
+			category = 10;
+			break;
+			
+		case 2:
+			category = 12;
+			break;
+			
+		case 3:
+			category = 16;
+			break;
+			
+		case 4:
+			category = 18;
+			break;
+		}
+    	
+    	
+    	Movie movie = new Movie(LocalTime.parse(h+":"+m),tbMovie_tfTitle.getText(),tbMovie_tfDirector.getText(),tbMovie_cbCategory.getSelectedItem().toString(),tbMovie_taDescription.getText(),category);
     	vectorMovies.add(movie);
     }//GEN-LAST:event_tbMovie_btnConfirmActionPerformed
 
@@ -1199,10 +1225,19 @@ public class _Graph extends javax.swing.JFrame {
     	if (tbTicket_cbMovie.getSelectedItem() != null && tbTicket_cbRoom.getSelectedItem() != null && tbTicket_cbSession.getSelectedItem() != null) {
     		User user = new User(tbTicket_tfName.getText(), Integer.parseInt(tbTicket_spAge.getValue().toString()),isStudy);
     		for (Room r : vectorRooms) {
+ 
 				if (r.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
 					for (Session s : r.listSession) {
+						 
 						if (s.toString().equals(tbTicket_cbSession.getSelectedItem().toString())) {
-							s.buyTickets(user);
+							if (s.getMovie().getClassification() > user.getAge()) {
+								System.out.println("Erro fime não classificado para o cliente");
+							} else if (s.getcapacity() < 1) {
+								System.out.println("Erro Sessão cheia");								
+							} else {
+								s.buyTickets(user);
+								System.out.println("OK");
+							}
 						}
 					}
 				}

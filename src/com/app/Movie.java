@@ -19,12 +19,16 @@ public class Movie {
      * @param category
      * @param description
      */
-    public Movie(LocalTime timeDur, String title, String director, String category,  String description) {
+    public Movie(LocalTime timeDur, String title, String director, String category,  String description, int classification) {
         this.timeDur = timeDur;
         this.title = title;
         this.director = director;
         this.category = category;
         this.description = description;
+        this.classification = classification;
+    }
+    public Movie(LocalTime timeDur, String title, String director, String category,  String description) {
+        this(timeDur, title, director, category, description, 0);
     }
 
     public Long getHour() {
