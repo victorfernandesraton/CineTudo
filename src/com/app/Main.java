@@ -39,17 +39,7 @@ public class Main {
 		
 		
 
-		EventQueue.invokeLater(new Runnable() {
-		public void run() {
-			try {
-				GraphInterface window = new GraphInterface();
-				window.frame.setVisible(true);
-				window.frame.setResizable(false);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	});
+		
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
