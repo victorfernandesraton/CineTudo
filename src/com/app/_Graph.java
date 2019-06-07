@@ -858,18 +858,7 @@ public class _Graph extends javax.swing.JFrame {
 		tbTicket_cbRoom.setSelectedIndex(-1);
         tbTicket_cbRoom.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-                double Price = 0;
-                if (tbTicket_cbRoom.getSelectedItem() != null) {
-                    for (Room room : vectorTicketRooms) {
-                        if (room.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
-                            Price = room.getPrice();
-                        }
-                    }
-                    if (Integer.parseInt(tbTicket_spAge.getValue().toString()) <= 18 || tbTicket_cbStudy.isSelected()) {
-                        Price = Price /2;
-                    }
-                    tbTickect_tfPrice.setText(Double.toString(Price));
-                }
+        		tbTicket_cbStudyActionPerformed(e);
         	}
         });
 
@@ -1015,14 +1004,6 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbTicket_cbStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_cbStudyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbTicket_cbStudyActionPerformed
-
-    private void tbTicket_tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_tfNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbTicket_tfNameActionPerformed
-
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
-        // TODO add your handling code here:
     	double Price = 0;
         if (tbTicket_cbRoom.getSelectedItem() != null) {
             for (Room room : vectorTicketRooms) {
@@ -1035,6 +1016,15 @@ public class _Graph extends javax.swing.JFrame {
             }
             tbTickect_tfPrice.setText(Double.toString(Price));
         }
+
+    }//GEN-LAST:event_tbTicket_cbStudyActionPerformed
+
+    private void tbTicket_tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_tfNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbTicket_tfNameActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox8ActionPerformed
 
     private void tbSession_cbMounthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
