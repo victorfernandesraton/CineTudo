@@ -82,9 +82,31 @@ public class _Graph extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lbMenu = new javax.swing.JLabel();
         btnMovie = new javax.swing.JButton();
+        btnMovie.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		btnMovieActionPerformed(e);
+        	}
+        });
         btnRoom = new javax.swing.JButton();
+        btnRoom.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		btnRoomActionPerformed(e);
+        	}
+        });
+
         btnSession = new javax.swing.JButton();
+        btnSession.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		btnSessionActionPerformed(e);
+        	}
+        });
+        
         btnTicket = new javax.swing.JButton();
+        btnTicket.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		btnTicketActionPerformed(e);
+        	}
+        });
         rdCreate = new javax.swing.JRadioButton();
         rdEdit = new javax.swing.JRadioButton();
         rdSearch = new javax.swing.JRadioButton();
@@ -995,8 +1017,20 @@ public class _Graph extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMovieActionPerformed
 
     private void btnRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
-        // TODO add your handling code here:
+    // TODO add your handling code here:
+    	tbPannel.setSelectedIndex(1);
     }//GEN-LAST:event_btnRoomActionPerformed
+
+    private void btnSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
+    // TODO add your handling code here:
+    	tbPannel.setSelectedIndex(2);
+    }//GEN-LAST:event_btnRoomActionPerformed
+
+    private void btnTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomActionPerformed
+    // TODO add your handling code here:
+    	tbPannel.setSelectedIndex(3);
+    }//GEN-LAST:event_btnRoomActionPerformed
+
 
     private void tbTickect_tfPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTickect_tfPriceActionPerformed
         // TODO add your handling code here:
