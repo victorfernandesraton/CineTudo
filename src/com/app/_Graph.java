@@ -72,7 +72,6 @@ public class _Graph extends javax.swing.JFrame {
     private void initComponents() {
         Room room = new Room3d("1212",2);
 		Movie movie =  new Movie(LocalTime.parse("02:30"),"Avangers: Ultimato","Tarantino","terror","Thanos is die and batmam kill all heroes of planet because her is unique hero ever exist");
-        Session session = new Session(room,movie,LocalDate.parse("2019-04-12"),LocalTime.parse("14:30:00"));
         vectorMovies.add(movie);
         vectorRooms.add(room);
         // MESSES
@@ -1055,6 +1054,7 @@ public class _Graph extends javax.swing.JFrame {
     private void tbTicket_cbStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_cbStudyActionPerformed
         // TODO add your handling code here:
         vectorTicketSession.clear();
+        tbTicket_cbSession.setSelectedIndex(-1);
         if (tbTicket_cbMovie.getSelectedItem() != null && tbTicket_cbRoom.getSelectedItem() != null) {
             for (Room r : vectorRooms) {
                 if (r.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
@@ -1211,6 +1211,7 @@ public class _Graph extends javax.swing.JFrame {
 //               vectorSessions.add(s);
                for (Room roon : vectorRooms) {
             	      roon.addSessio(s);
+            	      System.out.print(roon.getCapacity());
             	      System.out.print(s);
                }
                System.out.println(s.toString());
@@ -1235,8 +1236,10 @@ public class _Graph extends javax.swing.JFrame {
 							} else if (s.getcapacity() < 1) {
 								System.out.println("Erro Sessão cheia");								
 							} else {
-								s.buyTickets(user);
-								System.out.println("OK");
+								if (s.getOcupation() != r.getCapacity()) { 									
+									s.buyTickets(user);
+									System.out.println("OK");
+								} else System.out.print("Sala cheia");
 							}
 						}
 					}
