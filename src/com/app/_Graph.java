@@ -26,6 +26,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
 
 /**
  *
@@ -159,6 +161,26 @@ public class _Graph extends javax.swing.JFrame {
         tbTicket_tfName = new javax.swing.JTextField();
         tbTicket_lbAge = new javax.swing.JLabel();
         tbTicket_spAge = new javax.swing.JSpinner();
+        tbTicket_spAge.addAncestorListener(new AncestorListener() {
+        	public void ancestorAdded(AncestorEvent event) {
+        	}
+        	public void ancestorMoved(AncestorEvent event) {
+        		double Price = 0;
+                if (tbTicket_cbRoom.getSelectedItem() != null) {
+                    for (Room room : vectorTicketRooms) {
+                        if (room.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
+                            Price = room.getPrice();
+                        }
+                    }
+                    if (Integer.parseInt(tbTicket_spAge.getValue().toString()) <= 18 || tbTicket_cbStudy.isSelected()) {
+                        Price = Price /2;
+                    }
+                    tbTickect_tfPrice.setText(Double.toString(Price));
+                }
+        	}
+        	public void ancestorRemoved(AncestorEvent event) {
+        	}
+        });
         tbTicket_cbStudy = new javax.swing.JCheckBox();
         btnConfirm = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
@@ -166,6 +188,8 @@ public class _Graph extends javax.swing.JFrame {
         tbTicket_lbCpf = new javax.swing.JLabel();
         tbTicket_lbPrice = new javax.swing.JLabel();
         tbTickect_tfPrice = new javax.swing.JTextField();
+        tbTickect_tfPrice.setEnabled(false);
+        tbTickect_tfPrice.setEditable(false);
         
         // BUTTON GROUPS
         	btnGroupMenu.add(tbRoom_rd3D);
@@ -834,7 +858,18 @@ public class _Graph extends javax.swing.JFrame {
 		tbTicket_cbRoom.setSelectedIndex(-1);
         tbTicket_cbRoom.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        	
+                double Price = 0;
+                if (tbTicket_cbRoom.getSelectedItem() != null) {
+                    for (Room room : vectorTicketRooms) {
+                        if (room.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
+                            Price = room.getPrice();
+                        }
+                    }
+                    if (Integer.parseInt(tbTicket_spAge.getValue().toString()) <= 18 || tbTicket_cbStudy.isSelected()) {
+                        Price = Price /2;
+                    }
+                    tbTickect_tfPrice.setText(Double.toString(Price));
+                }
         	}
         });
 
@@ -988,7 +1023,18 @@ public class _Graph extends javax.swing.JFrame {
 
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
         // TODO add your handling code here:
-    	
+    	double Price = 0;
+        if (tbTicket_cbRoom.getSelectedItem() != null) {
+            for (Room room : vectorTicketRooms) {
+                if (room.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
+                    Price = room.getPrice();
+                }
+            }
+            if (Integer.parseInt(tbTicket_spAge.getValue().toString()) <= 18 || tbTicket_cbStudy.isSelected()) {
+                Price = Price /2;
+            }
+            tbTickect_tfPrice.setText(Double.toString(Price));
+        }
     }//GEN-LAST:event_jComboBox8ActionPerformed
 
     private void tbSession_cbMounthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSession_cbDayActionPerformed
