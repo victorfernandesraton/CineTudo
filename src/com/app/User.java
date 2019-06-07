@@ -37,6 +37,11 @@ public class User {
     public User(String name, String cpf, LocalDate dayBrith) {
         this(name,cpf,dayBrith,false);
     }
+    
+    public User(String name, int age) {
+    	this.isAge = age;
+    	this.name = name;
+    }
 
     public int getAge() {
         return isAge;
