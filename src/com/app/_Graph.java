@@ -39,7 +39,6 @@ public class _Graph extends javax.swing.JFrame {
     public Vector<Movie> vectorMovies = new Vector<Movie>();
     public Vector<Room> vectorRooms = new Vector<Room>();    
     public Vector<Room> vectorTicketRooms = new Vector<Room>();    
-    public Vector<Session> vectorSessions = new Vector<Session>();
     public Vector<String> vectorCategory = new Vector<String>();
     public Vector<String> vectorClassification = new Vector<String>();
     public Vector<String> vectorSessionHr = new Vector<String>();
@@ -836,12 +835,10 @@ public class _Graph extends javax.swing.JFrame {
             	tbTicket_cbRoom.setSelectedIndex(-1);
             	vectorTicketRooms.clear();
         		if (tbTicket_cbMovie.getSelectedItem() != null) {
-					System.out.print("ok 1");
         			for (Room r : vectorRooms) {
         				System.out.print(r);
         				for (Session s : r.getSessionList()) {
         					if (s.getMovie().toString().equals(tbTicket_cbMovie.getSelectedItem().toString())) {
-        						System.out.print("ok");
         						vectorTicketRooms.add(s.getRoom());
         					}
         				}
@@ -897,18 +894,7 @@ public class _Graph extends javax.swing.JFrame {
 		tbTicket_cbSession.setSelectedIndex(-1);
         tbTicket_cbSession.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-//        		vectorTicketSession.clear();
-            	if (tbTicket_cbMovie.getSelectedItem() != null && tbTicket_cbRoom.getSelectedItem() != null) {
-            		for (Room r : vectorRooms) {
-        				if (r.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
-        					for (Session s : r.listSession) {
-        						if (s.getMovie().toString().equals(tbTicket_cbMovie.getSelectedItem().toString())) {
-        							vectorTicketSession.add(s);
-        						}
-        					}
-        				}
-        			}
-            	}
+       		    
         	}
         });
         
@@ -1074,6 +1060,18 @@ public class _Graph extends javax.swing.JFrame {
 
     private void tbTicket_cbStudyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbTicket_cbStudyActionPerformed
         // TODO add your handling code here:
+        vectorTicketSession.clear();
+        if (tbTicket_cbMovie.getSelectedItem() != null && tbTicket_cbRoom.getSelectedItem() != null) {
+            for (Room r : vectorRooms) {
+                if (r.toString().equals(tbTicket_cbRoom.getSelectedItem().toString())) {
+                    for (Session s : r.listSession) {
+                        if (s.getMovie().toString().equals(tbTicket_cbMovie.getSelectedItem().toString())) {
+                            vectorTicketSession.add(s);
+                        }
+                    }
+                }
+            }
+        }
     	double Price = 0;
         if (tbTicket_cbRoom.getSelectedItem() != null) {
             for (Room room : vectorTicketRooms) {
