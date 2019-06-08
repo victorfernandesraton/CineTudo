@@ -66,15 +66,18 @@ public abstract class Room {
     }
 
     public boolean addSessio(Movie movie, LocalDate date, LocalTime startTime, int ocupation) {
+        LocalDateTime dateTime = LocalDateTime.of(date.getYear(),date.getMonth(),date.getDayOfMonth(),startTime.getHour(),startTime.getMinute(),startTime.getSecond());
         Session s = new Session(this, movie, date, startTime, ocupation);
-        if (listSession.add(s)) {
+        if (!sessionExist(dateTime)) {
+            listSession.add(s);
             return true;
         }
         return false;
     }
 
     public boolean addSessio(Session s) {
-        if (listSession.add(s) && s.getRoom().equals(this) ) {
+        if ( s.getRoom().equals(this) && !sessionExist(s.getStart()) ) {
+            listSession.add(s);
             return true;
         }
         return false;
@@ -100,8 +103,11 @@ public abstract class Room {
         return null;
     }
     
+    public ArrayList<Session> getSessionList() {
+    	return listSession;
+    }
 	@Override
 	public String toString() {
-		return this.id + "\t," + this.capacity;
+		return this.id + " ," + this.capacity+", "+this.getType();
 	}
 }

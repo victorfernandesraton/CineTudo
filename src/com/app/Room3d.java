@@ -25,9 +25,4 @@ public class Room3d extends Room{
         Room.is3d = true;
         Room.type = "3-D room";
     }
-    
-	@Override
-	public String toString() {
-		return "\nRoom3d [" + super.toString() + "]";
-	}
 }

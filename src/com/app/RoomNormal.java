@@ -26,9 +26,4 @@ public class RoomNormal extends Room {
         Room.is3d = false;
         Room.type = "Normal room";
     }
-    
-    @Override
-	public String toString() {
-		return "\nNormalRoom [" + super.toString() + "]";
-	}
 }
